@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apply for a Founding Station — Blockster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0A08; --panel:#100E0B; --panel2:#15120E;
+    --line:rgba(248,244,235,.10); --line2:rgba(248,244,235,.16);
+    --text:#F8F4EB; --muted:rgba(248,244,235,.64); --faint:rgba(248,244,235,.38);
+    --volt:#CAFC00; --violet:#7C3AED; --blue:#0EA5E9;
+    --disp:"Bricolage Grotesque",sans-serif; --ui:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);
+    background-image:radial-gradient(90% 55% at 70% -10%, rgba(202,252,0,.08), transparent 62%), radial-gradient(80% 60% at 0% 8%, rgba(124,58,237,.10), transparent 58%)}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase}
+  .shell{max-width:1180px;margin:0 auto;padding:0 24px 64px}
+  .nav{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
+  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.35)}
+  .nav span:last-child{font-size:11px;color:var(--faint)}
+  .hero{padding:64px 0 36px;text-align:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.24);background:rgba(202,252,0,.07);border-radius:999px;padding:9px 15px;color:var(--volt);font-size:11px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--volt);box-shadow:0 0 12px var(--volt)}
+  h1{font-family:var(--disp);font-weight:800;font-size:clamp(42px,7vw,82px);line-height:.96;letter-spacing:-.04em;margin:22px auto 18px;max-width:890px}
+  .lime{color:var(--volt)}
+  .sub{max-width:680px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.55}
+  .offer{margin:34px auto 0;display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--line)}
+  .offer div{background:rgba(16,14,11,.92);padding:19px 16px}
+  .offer strong{display:block;font-family:var(--disp);font-size:34px;line-height:1;color:var(--text);letter-spacing:-.025em}
+  .offer strong.volt{color:var(--volt)}
+  .offer span{display:block;margin-top:8px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:28px;align-items:start;margin-top:40px}
+  .card{background:rgba(16,14,11,.86);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 80px rgba(0,0,0,.18)}
+  .form-card{padding:28px}
+  .aside{padding:28px;position:sticky;top:24px}
+  .aside h2,.form-card h2{font-family:var(--disp);font-weight:800;letter-spacing:-.025em;font-size:26px;margin-bottom:8px}
+  .aside p,.form-card p{color:var(--muted);font-size:14px;line-height:1.55}
+  form{display:grid;gap:19px;margin-top:24px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:block;font-weight:700;font-size:13px;margin-bottom:8px}
+  .req{color:var(--volt)}
+  input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:12px;color:var(--text);font:500 14px var(--ui);padding:13px 14px;transition:.15s}
+  textarea{min-height:92px;resize:vertical;line-height:1.5}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--volt);box-shadow:0 0 0 3px rgba(202,252,0,.11)}
+  ::placeholder{color:rgba(248,244,235,.28)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .chip span{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:9px 13px;color:var(--muted);font-size:13px;cursor:pointer;user-select:none}
+  .chip input:checked + span{border-color:var(--volt);color:var(--volt);background:rgba(202,252,0,.08)}
+  .commit{border:1px solid rgba(202,252,0,.28);border-radius:16px;padding:18px;background:radial-gradient(110% 120% at 50% -20%, rgba(202,252,0,.09), transparent 62%)}
+  button{border:0;border-radius:999px;background:var(--volt);color:#080805;font-weight:800;font-size:15px;padding:15px 22px;cursor:pointer;transition:.15s}
+  button:hover{transform:translateY(-1px);box-shadow:0 14px 42px rgba(202,252,0,.18)}
+  .fine{font-size:12px;color:var(--faint);text-align:center}
+  .steps{margin-top:24px;display:grid;gap:12px}
+  .step{display:grid;grid-template-columns:32px 1fr;gap:13px;align-items:start}
+  .n{width:32px;height:32px;border-radius:50%;border:1px solid rgba(202,252,0,.35);color:var(--volt);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:700}
+  .step b{display:block;font-size:14px;margin-bottom:2px}
+  .step span{display:block;color:var(--muted);font-size:12.5px;line-height:1.45}
+  .mini{margin-top:24px;border-top:1px solid var(--line);padding-top:22px}
+  .mini h3{font-size:12px;color:var(--faint);font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+  .list{display:flex;flex-wrap:wrap;gap:8px}
+  .list span{border:1px solid var(--line);background:rgba(248,244,235,.035);border-radius:999px;padding:7px 10px;font-size:12px;color:var(--muted)}
+  .callout{border:1px solid rgba(202,252,0,.22);background:rgba(202,252,0,.055);border-radius:15px;padding:16px 17px;color:var(--muted);font-size:13px;line-height:1.55}
+  .callout b{color:var(--text)}
+  .fineprint{border-top:1px solid var(--line);padding-top:16px;color:var(--faint);font-size:12px;line-height:1.6}
+  .fineprint b{color:var(--muted)}
+  .success{display:none;margin-top:18px;border:1px solid rgba(202,252,0,.30);background:rgba(202,252,0,.08);border-radius:14px;padding:16px;color:var(--text);font-size:14px}
+  @media (max-width:900px){
+    .offer{grid-template-columns:repeat(2,1fr)}
+    .grid{grid-template-columns:1fr}
+    .aside{position:static}
+  }
+  @media (max-width:620px){
+    .shell{padding-inline:16px}
+    .hero{padding-top:44px}
+    .row{grid-template-columns:1fr}
+    .offer{grid-template-columns:1fr}
+    .form-card,.aside{padding:22px}
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+      <span class="mono">Founding Station Beta</span>
+    </header>
+
+    <section class="hero">
+      <div class="badge"><span class="pulse"></span>Applications open · first 20 stations</div>
+      <h1>Apply for a <span class="lime">Founding Station.</span></h1>
+      <p class="sub">Blockster V3 gives your project an AI-run media Station with publishing, events, rewards, analytics, audience data, email/SMS, and growth campaigns.</p>
+      <div class="offer">
+        <div><strong class="volt">$0/mo</strong><span>Platform fee during beta</span></div>
+        <div><strong>$500+</strong><span>Rewards wallet minimum</span></div>
+        <div><strong>$1k+</strong><span>Recommended launch test</span></div>
+        <div><strong>20</strong><span>Founding Station spots</span></div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card form-card">
+        <h2>Tell us about the project.</h2>
+        <p>We’re reviewing applications now. Once the founding Stations are confirmed, V3 launches with the first beta cohort in the coming weeks.</p>
+
+        <form id="applicationForm">
+          <div class="row">
+            <div>
+              <label>Your name <span class="req">*</span></label>
+              <input name="name" required placeholder="Jane Doe">
+            </div>
+            <div>
+              <label>Telegram or email <span class="req">*</span></label>
+              <input name="contact" required placeholder="@handle or you@brand.com">
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Project / brand <span class="req">*</span></label>
+              <input name="project" required placeholder="Project name">
+            </div>
+            <div>
+              <label>Website <span class="req">*</span></label>
+              <input name="website" required placeholder="https://">
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Your role</label>
+              <select name="role">
+                <option>Founder / CEO</option>
+                <option>Marketing / Comms</option>
+                <option>Community</option>
+                <option>Agency / promoter</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label>Audience size</label>
+              <select name="audience_size">
+                <option>Under 1k</option>
+                <option>1k-10k</option>
+                <option>10k-100k</option>
+                <option>100k+</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>What type of project is this?</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="type" value="Exchange"><span>Exchange</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="DeFi"><span>DeFi</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="Wallet"><span>Wallet</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="AI"><span>AI</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="Gaming"><span>Gaming</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="Infrastructure"><span>Infrastructure</span></label>
+              <label class="chip"><input type="checkbox" name="type" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+
+          <div>
+            <label>What services are you interested in?</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="services" value="Publishing articles"><span>Publishing articles</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Videos"><span>Videos</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="AI growth"><span>AI growth</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="PR wire"><span>PR wire</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Email/SMS"><span>Email/SMS</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Events"><span>Events</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Paid traffic"><span>Paid traffic</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Rewards"><span>Rewards</span></label>
+            </div>
+          </div>
+
+          <div class="callout">
+            <b>Your Station can syndicate content from across your existing networks.</b>
+            Embed posts, videos, podcasts and community threads from 8 platforms: X, YouTube, TikTok, Instagram, Reddit, Twitch, Spotify and Apple Podcasts.
+          </div>
+
+          <div>
+            <label>Which platforms are you currently active on?</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="platforms" value="X"><span>X</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="YouTube"><span>YouTube</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="TikTok"><span>TikTok</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="Instagram"><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="Reddit"><span>Reddit</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="Twitch"><span>Twitch</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="Spotify"><span>Spotify</span></label>
+              <label class="chip"><input type="checkbox" name="platforms" value="Apple Podcasts"><span>Apple Podcasts</span></label>
+            </div>
+          </div>
+
+          <div>
+            <label>What would you publish?</label>
+            <textarea name="publishing" placeholder="Stories, product updates, interviews, research, tutorials, explainers, market updates, events..."></textarea>
+          </div>
+
+          <div class="commit">
+            <label>Can the project fund a rewards wallet with $500+? <span class="req">*</span></label>
+            <select name="wallet" required>
+              <option>Yes</option>
+              <option>Probably - send details</option>
+              <option>Not yet</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Anything else we should know?</label>
+            <textarea name="notes" placeholder="Client goals, launch timing, target audience, preferred rewards budget..."></textarea>
+          </div>
+
+          <button type="submit">Submit application →</button>
+          <div class="fineprint">
+            <b>After beta:</b> Station plans are expected to start at <b>$149/mo</b>, with Growth plans at <b>$499/mo</b> depending on the services you use. Reward wallet funding is separate: those funds go to your audience as prizes/rewards, not to Blockster. <b>BUX are simple in-platform points</b> users earn for engagement and burn to enter your funded raffles. Rewards funding is self-custodial: your project funds and controls its rewards wallet. We support multiple reward rails including EVM-compatible chains, Solana, and TON, with USDC/USDT/SOL/TON options depending on the rail. Readers get a Blockster wallet when they register, so they can earn and use BUX inside the platform.
+          </div>
+          <p class="fine">Applications are sent to Blockster for beta review.</p>
+          <div id="success" class="success">Application received. Blockster will review the project for the Founding Station beta cohort.</div>
+        </form>
+      </section>
+
+      <aside class="card aside">
+        <h2>How it works</h2>
+        <p>We’re accepting a small founding cohort so every Station launches with quality control, real rewards, and clear outcomes.</p>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><div><b>Apply</b><span>Send project details, audience, goals, and reward budget readiness.</span></div></div>
+          <div class="step"><div class="n">2</div><div><b>Review</b><span>We check fit, legitimacy, and whether the project is right for beta.</span></div></div>
+          <div class="step"><div class="n">3</div><div><b>Confirm</b><span>We set up the Station, Electra, events, analytics, and rewards wallet.</span></div></div>
+          <div class="step"><div class="n">4</div><div><b>Launch</b><span>Founding Stations go live together when V3 launches in the coming weeks.</span></div></div>
+        </div>
+
+        <div class="mini">
+          <h3>Included</h3>
+          <div class="list">
+            <span>AI publishing</span>
+            <span>BUX rewards</span>
+            <span>User referrals</span>
+            <span>Incentivized reads</span>
+            <span>Events</span>
+            <span>X / YouTube tracking</span>
+            <span>TikTok embeds</span>
+            <span>Email + SMS</span>
+            <span>Analytics</span>
+            <span>Audience data</span>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h3>Beta terms</h3>
+          <p>Founding Stations pay $0/mo during beta when they fund a $500+ rewards wallet. BUX are points, not a tradable token. Rewards are funded from your self-custodial wallet; users receive a Blockster wallet at registration. Supported rails include EVM-compatible chains, Solana, and TON, with USDC/USDT/SOL/TON options depending on the rail.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const endpoint = "https://webhook.site/244eb5a0-38e5-43ac-89c7-569b6c79b50d";
+
+    document.getElementById("applicationForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const button = form.querySelector("button[type='submit']");
+      const success = document.getElementById("success");
+      const data = {};
+
+      for (const [key, value] of new FormData(form).entries()) {
+        if (Object.prototype.hasOwnProperty.call(data, key)) {
+          data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+        } else {
+          data[key] = value;
+        }
+      }
+
+      button.disabled = true;
+      button.textContent = "Submitting...";
+
+      try {
+        await fetch(endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            source: "Blockster Founding Station application",
+            submittedAt: new Date().toISOString(),
+            fields: data
+          })
+        });
+        success.style.display = "block";
+        form.reset();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      } catch (error) {
+        success.style.display = "block";
+        success.textContent = "We could not submit this application. Please message @blocksterglobal on Telegram.";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Submit application ->";
+      }
+    });
+  </script>
+</body>
+</html>
