@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blockster — Become a Contributor</title>
+<meta name="description" content="Bring your voice to the network. Publish on the crypto stations you love and get paid directly — in the currency you choose." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Become a Contributor — Blockster" />
+<meta property="og:description" content="Bring your voice to the network. Get paid directly by the stations you write for." />
+<meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/creators/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Become a Contributor — Blockster" />
+<meta name="twitter:description" content="Bring your voice to the network. Get paid directly by the stations you write for." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#0B0A08; --ink-850:#100E0B; --ink-800:#16130F; --ink-700:#201C16;
+    --line:rgba(248,244,235,.08); --line-2:rgba(248,244,235,.14);
+    --text-hi:#F8F4EB; --text-mid:rgba(248,244,235,.62); --text-lo:rgba(248,244,235,.36);
+    --volt:#CAFC00; --volt-deep:#9FCB00;
+    --disp:"Bricolage Grotesque",sans-serif; --ui:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased}
+  body{background:var(--ink-900);color:var(--text-hi);font-family:var(--ui);line-height:1.5;
+    background-image:radial-gradient(120% 70% at 80% -10%, rgba(202,252,0,.05), transparent 60%)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+
+  /* CANONICAL TOP BAR */
+  .topbar{display:flex;align-items:center;justify-content:space-between;height:62px;border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+  .brand .dot{width:9px;height:9px;border-radius:2px;background:var(--volt);box-shadow:0 0 14px var(--volt)}
+  .nav{display:flex;gap:5px;align-items:center}
+  .navlink{font-size:14px;color:var(--text-mid);font-weight:500;padding:7px 11px;border-radius:999px}
+  .navlink.on{color:var(--text-hi)}
+  .bux-bal{font-family:var(--mono);font-size:12px;color:var(--volt);border:1px solid rgba(202,252,0,.3);border-radius:999px;padding:7px 13px;letter-spacing:.04em}
+  .btn-nav{background:var(--volt);color:#0a0a06;font-weight:600;font-size:13px;border-radius:999px;padding:9px 15px}
+
+  /* HERO */
+  .hero{padding:74px 0 30px;text-align:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--volt)}
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--volt);box-shadow:0 0 0 0 rgba(202,252,0,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(202,252,0,.45)}70%{box-shadow:0 0 0 9px rgba(202,252,0,0)}100%{box-shadow:0 0 0 0 rgba(202,252,0,0)}}
+  h1.title{font-family:var(--disp);font-weight:800;letter-spacing:-.035em;line-height:.96;font-size:clamp(48px,7.5vw,90px);margin:20px auto 0;max-width:16ch}
+  .dek{max-width:60ch;margin:22px auto 0;color:var(--text-mid);font-size:18px}
+  .dek b{color:var(--text-hi);font-weight:600}
+  .cta-row{display:flex;gap:12px;justify-content:center;margin-top:30px}
+  .btn-volt{background:var(--volt);color:#0a0a06;font-weight:600;font-size:15px;border-radius:999px;padding:14px 26px}
+  .btn-ghost{border:1px solid var(--line-2);color:var(--text-mid);font-size:15px;border-radius:999px;padding:13px 24px;font-weight:500}
+
+  /* credibility strip */
+  .cred{display:flex;justify-content:center;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:46px 0 10px;background:var(--ink-850)}
+  .cred .c{flex:1;text-align:center;padding:20px 16px;border-right:1px solid var(--line)}
+  .cred .c:last-child{border-right:none}
+  .cred .v{font-family:var(--disp);font-weight:800;font-size:30px;letter-spacing:-.02em}
+  .cred .v.volt{color:var(--volt)}
+  .cred .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-lo);margin-top:6px}
+
+  section{padding:64px 0 0}
+  .sec-head{text-align:center;margin-bottom:36px}
+  .sec-head .ov{color:var(--volt);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+  .sec-head h2{font-family:var(--disp);font-weight:800;font-size:36px;letter-spacing:-.025em;margin-top:12px}
+  .sec-head p{color:var(--text-mid);max-width:54ch;margin:12px auto 0}
+
+  /* roles grid */
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .role{border:1px solid var(--line);border-radius:16px;background:var(--ink-850);padding:22px;display:flex;flex-direction:column;gap:10px;transition:.15s}
+  .role:hover{border-color:var(--line-2);transform:translateY(-2px)}
+  .role .rt{display:flex;align-items:center;gap:11px}
+  .role .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--ink-700);font-size:18px}
+  .role h3{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .role .makes{color:var(--text-mid);font-size:13.5px;line-height:1.5;flex:1}
+  .role .earn{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--volt);font-weight:700;border-top:1px solid var(--line);padding-top:11px}
+
+  /* how it works — real sequence, numbered */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .step{border:1px solid var(--line);border-radius:16px;background:var(--ink-850);padding:24px;position:relative}
+  .step .n{font-family:var(--disp);font-weight:800;font-size:40px;letter-spacing:-.03em;color:var(--ink-700);line-height:1}
+  .step h3{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.01em;margin:10px 0 8px}
+  .step p{color:var(--text-mid);font-size:14px;line-height:1.5}
+  .step .tag{margin-top:14px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--volt)}
+
+  /* earn model band */
+  .earnband{border:1px solid rgba(202,252,0,.22);border-radius:18px;overflow:hidden;
+    background:radial-gradient(120% 140% at 50% -10%, rgba(202,252,0,.10), var(--ink-850) 60%);padding:36px}
+  .earnband h2{font-family:var(--disp);font-weight:800;font-size:30px;letter-spacing:-.02em;text-align:center}
+  .earnband .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+  .em{text-align:center;padding:16px}
+  .em .v{font-family:var(--disp);font-weight:800;font-size:26px;color:var(--volt)}
+  .em .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lo);margin-top:6px}
+  .em .d{color:var(--text-mid);font-size:12.5px;margin-top:8px}
+
+  /* voices social proof */
+  .voices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .voice{display:grid;grid-template-columns:48px 1fr;gap:13px;align-items:center;background:var(--ink-850);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .voice .av{width:48px;height:48px;border-radius:50%;background-size:cover;background-position:center}
+  .voice .vn{font-family:var(--disp);font-weight:700;font-size:15.5px;letter-spacing:-.01em}
+  .voice .vr{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lo);margin-top:4px;display:flex;gap:7px;align-items:center}
+  .voice .vr .d{width:6px;height:6px;border-radius:2px}
+
+  /* final cta */
+  .final{margin:64px 0 90px;border:1px solid var(--line);border-radius:18px;padding:52px;text-align:center;
+    background:radial-gradient(120% 160% at 50% 0%, rgba(202,252,0,.08), transparent 60%)}
+  .final h2{font-family:var(--disp);font-weight:800;font-size:38px;letter-spacing:-.025em}
+  .final p{color:var(--text-mid);margin:14px auto 28px;max-width:48ch}
+
+  @media (max-width:880px){
+    .wrap{padding:0 18px}
+    .nav .navlink{display:none}
+    .roles,.steps,.voices{grid-template-columns:1fr}
+    .cred{flex-wrap:wrap}.cred .c{flex:1 1 50%}
+    .earnband .grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand"><span class="dot"></span>BLOCKSTER</div>
+      <nav class="nav">
+        <a class="navlink">Feed</a><a class="navlink">The Network</a><a class="navlink">Pricing</a><a class="navlink on">For creators</a>
+        <a class="navlink">Sign in</a>
+        <a class="btn-nav" href="/blockster-v3-beta/">Launch a station</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="eyebrow mono"><span class="pulse"></span>For journalists, hosts, creators &amp; artists</div>
+      <h1 class="title">Bring your voice to the network.</h1>
+      <p class="dek">Publish on the crypto stations you love and <b>get paid directly — in the currency you choose</b> — for every story, episode, drop and event. Your work, syndicated everywhere and measured.</p>
+      <div class="cta-row">
+        <a class="btn-volt" href="/blockster-v3-beta/creators/apply/">Apply to contribute →</a>
+        <a class="btn-ghost" href="#how">See how it works</a>
+      </div>
+      <div class="cred">
+        <div class="c"><div class="v">Beta</div><div class="k">Creator network</div></div>
+        <div class="c"><div class="v">20</div><div class="k">Founding stations</div></div>
+        <div class="c"><div class="v">Open</div><div class="k">Applications</div></div>
+        <div class="c"><div class="v volt">Free</div><div class="k">To apply</div></div>
+      </div>
+    </div>
+
+    <!-- ROLES -->
+    <section>
+      <div class="sec-head"><div class="ov">Who contributes</div><h2>Every kind of voice has a home</h2><p>Stations run as media brands — and they're hiring the talent that makes them worth following.</p></div>
+      <div class="roles">
+        <div class="role"><div class="rt"><span class="ic">✍️</span><h3>Journalists</h3></div><p class="makes">Break news and write dispatches for the stations covering your beat.</p><span class="earn">Paid per story · by the station</span></div>
+        <div class="role"><div class="rt"><span class="ic">🎙️</span><h3>Podcasters &amp; hosts</h3></div><p class="makes">Launch shows on a station, drop episodes, and grow a listenership.</p><span class="earn">Paid per episode · + audience</span></div>
+        <div class="role"><div class="rt"><span class="ic">🎬</span><h3>Video producers</h3></div><p class="makes">Produce interviews, explainers and reels syndicated across the network.</p><span class="earn">Paid per video · + views</span></div>
+        <div class="role"><div class="rt"><span class="ic">📣</span><h3>Influencers</h3></div><p class="makes">Bring your audience and amplify station stories to your followers.</p><span class="earn">Paid per campaign · + reach</span></div>
+        <div class="role"><div class="rt"><span class="ic">🎟️</span><h3>Event organizers</h3></div><p class="makes">Run live programming — AMAs, side-stages, meetups — for a station.</p><span class="earn">Paid per event · + RSVPs</span></div>
+        <div class="role"><div class="rt"><span class="ic">🎨</span><h3>Artists &amp; designers</h3></div><p class="makes">Design covers, merch and drops members spend their BUX to own.</p><span class="earn">Paid per drop · + royalties</span></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="sec-head"><div class="ov">How it works</div><h2>From profile to first payout</h2></div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>Build your profile</h3><p>Connect your socials — we auto-verify your identity and reach — and link your best work.</p><span class="tag">Auto-verified · no waiting</span></div>
+        <div class="step"><div class="n">02</div><h3>Get invited — or apply</h3><p>Stations invite you, or you apply to the ones you want. Electra screens every application — strong fits fast-tracked, spam filtered.</p><span class="tag">Vetted automatically</span></div>
+        <div class="step"><div class="n">03</div><h3>Publish &amp; get paid</h3><p>Agree terms with the station and get paid directly to your wallet — fiat or crypto, your choice. Syndicate everywhere, keep your audience.</p><span class="tag">Paid direct · your currency</span></div>
+      </div>
+    </section>
+
+    <!-- EARN MODEL -->
+    <section>
+      <div class="earnband">
+        <h2>Get paid in real money — not points</h2>
+        <p style="text-align:center;color:var(--text-mid);max-width:62ch;margin:12px auto 0;font-size:14px">BUX is how <b style="color:var(--text-hi)">readers</b> earn and play — they collect it for engaging and burn it in raffles. <b style="color:var(--text-hi)">You</b> get paid directly by the station, in the currency you choose.</p>
+        <div class="grid">
+          <div class="em"><div class="v">Paid directly</div><div class="k">By the station</div><div class="d">Fiat or crypto, straight to your wallet — on terms you agree.</div></div>
+          <div class="em"><div class="v">Per piece</div><div class="k">Retainer · rev-share</div><div class="d">However a station chooses to work with you.</div></div>
+          <div class="em"><div class="v">⟳ Syndicated</div><div class="k">X · LinkedIn · YouTube</div><div class="d">Your work auto-posts to your channels — reach flows back, measured.</div></div>
+          <div class="em"><div class="v">Reputation</div><div class="k">Compounds on-network</div><div class="d">Your stats and profile earn you more invites over time.</div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <div class="final">
+      <h2>Your audience is waiting.</h2>
+      <p>Join the creators getting paid to do their best work across the network's stations.</p>
+      <a class="btn-volt" href="/blockster-v3-beta/creators/apply/">Apply to contribute →</a>
+    </div>
+  </div>
+</body>
+</html>

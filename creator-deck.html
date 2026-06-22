@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blockster Creator Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B0A08;--panel:#13100D;--panel2:#19150F;--line:rgba(248,244,235,.13);--text:#F8F4EB;--muted:rgba(248,244,235,.66);--faint:rgba(248,244,235,.40);--lime:#CAFC00;--blue:#0EA5E9;--violet:#7C3AED;--disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ui)}
+  @page{size:1280px 720px;margin:0}
+  .slide{width:1280px;height:720px;padding:58px 70px;position:relative;overflow:hidden;background:radial-gradient(70% 70% at 78% -12%,rgba(202,252,0,.11),transparent 62%),radial-gradient(62% 62% at -8% 15%,rgba(124,58,237,.12),transparent 56%),var(--bg);page-break-after:always}
+  .brand{position:absolute;left:70px;top:34px;display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
+  .mark{width:16px;height:16px;border-radius:4px;background:var(--lime);box-shadow:0 0 22px rgba(202,252,0,.42)}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--lime)}
+  h1,h2{font-family:var(--disp);font-weight:800;letter-spacing:-.045em;line-height:.96;margin:0}
+  h1{font-size:83px;max-width:850px;margin-top:96px}
+  h2{font-size:66px;max-width:940px;margin-top:64px}
+  .lead{font-size:22px;line-height:1.48;color:var(--muted);max-width:760px;margin:25px 0 0}
+  .lime{color:var(--lime)}
+  .grid{display:grid;gap:18px;margin-top:36px}
+  .grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}
+  .card{border:1px solid var(--line);border-radius:16px;background:rgba(19,16,13,.82);padding:24px;min-height:154px}
+  .card .h{font-family:var(--disp);font-weight:800;font-size:24px;letter-spacing:-.02em;margin-bottom:10px}
+  .card p{margin:0;color:var(--muted);font-size:17px;line-height:1.46}
+  .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+  .stat{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:25px}
+  .stat .v{font-family:var(--disp);font-weight:800;font-size:43px;letter-spacing:-.03em;color:var(--lime)}
+  .stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);margin-top:8px}
+  .foot{position:absolute;left:70px;right:70px;bottom:32px;border-top:1px solid var(--line);padding-top:15px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;display:flex;justify-content:space-between}
+  ul{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:16px;max-width:900px}
+  li{display:grid;grid-template-columns:24px 1fr;gap:14px;color:var(--muted);font-size:22px;line-height:1.38}
+  li:before{content:"";width:10px;height:10px;border-radius:3px;background:var(--lime);margin-top:10px;box-shadow:0 0 14px rgba(202,252,0,.38)}
+  .small{font-size:16px;color:var(--faint);line-height:1.45}
+</style>
+</head>
+<body>
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <div class="tag" style="margin-top:36px">Creator Network Beta</div>
+    <h1>Get discovered by crypto brands that need <span class="lime">real content.</span></h1>
+    <p class="lead">Blockster is building a network where projects launch branded Stations, and approved creators help them publish stories, interviews, research, tutorials, videos, and event coverage.</p>
+    <div class="foot"><span>Creator network</span><span>Writers · hosts · researchers · video producers</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <h2>Creators do not need to launch a Station.</h2>
+    <p class="lead">Stations are for businesses, projects, ecosystems, and media brands. Creators join the talent side of the network.</p>
+    <div class="grid two">
+      <div class="card"><div class="h">Businesses launch Stations</div><p>They own the page, audience, publishing calendar, campaigns, events, analytics, and rewards wallet.</p></div>
+      <div class="card"><div class="h">Creators contribute</div><p>Approved creators can be discovered, contacted, invited, or assigned to help those Stations produce better content.</p></div>
+    </div>
+    <div class="foot"><span>Positioning</span><span>Stations = demand · creators = supply</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <h2>What creators can contribute.</h2>
+    <div class="grid three">
+      <div class="card"><div class="h">Articles + research</div><p>News, explainers, market notes, tutorials, ecosystem updates, and sponsored editorial.</p></div>
+      <div class="card"><div class="h">Interviews + video</div><p>Founder interviews, YouTube segments, short clips, product demos, and event recaps.</p></div>
+      <div class="card"><div class="h">Events + social</div><p>X Spaces, AMAs, webinars, conference coverage, launch campaigns, and social threads.</p></div>
+    </div>
+    <div class="foot"><span>Content formats</span><span>Publish across Station pages and existing channels</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <h2>Why join early.</h2>
+    <ul>
+      <li>Get listed in the beta creator network before Stations begin hiring and inviting contributors.</li>
+      <li>Build a profile that shows your beats, formats, portfolio, audience, rates, and availability.</li>
+      <li>Get matched with brands that need writers, researchers, hosts, editors, video producers, and event talent.</li>
+      <li>Work directly with Stations on paid assignments, retainers, campaign work, or project-based content.</li>
+    </ul>
+    <div class="foot"><span>Creator value</span><span>Discovery · matching · paid work</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <h2>How it works.</h2>
+    <div class="statrow">
+      <div class="stat"><div class="v">1</div><div class="k">Apply with your work, beats, formats, and rates</div></div>
+      <div class="stat"><div class="v">2</div><div class="k">Get reviewed for the beta creator network</div></div>
+      <div class="stat"><div class="v">3</div><div class="k">Get discovered or invited by Stations</div></div>
+    </div>
+    <p class="lead" style="margin-top:34px">Blockster is not asking most creators to pay for a Station. The paid customer is the brand. The creator opportunity is access to Station work.</p>
+    <div class="foot"><span>Creator path</span><span>Apply → profile → match → contribute</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="brand"><span class="mark"></span>BLOCKSTER</div>
+    <h2>Apply to the creator network.</h2>
+    <p class="lead">We are reviewing creators, writers, researchers, hosts, video producers, editors, and event talent for the beta phase.</p>
+    <div class="grid two" style="margin-top:50px">
+      <div class="card"><div class="h">Best fit</div><p>People who understand crypto, can publish consistently, and have proof of quality work or a relevant audience.</p></div>
+      <div class="card"><div class="h">Next step</div><p>Submit your profile, portfolio links, beats, content formats, audience, and rates.</p></div>
+    </div>
+    <p class="small" style="position:absolute;left:70px;bottom:78px">Creator application: https://rubyad.github.io/blockster-v3-beta/creators/apply/</p>
+    <div class="foot"><span>Lidia · Blockster</span><span>https://rubyad.github.io/blockster-v3-beta/creators/</span></div>
+  </section>
+</body>
+</html>
