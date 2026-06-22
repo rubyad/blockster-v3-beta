@@ -126,10 +126,11 @@
   .wallet strong{display:block;color:var(--volt);font-family:var(--mono);font-size:30px;line-height:1;margin-bottom:7px}
   .wallet span{display:block;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
   .rewards-card{border-color:rgba(202,252,0,.28);background:linear-gradient(135deg,rgba(202,252,0,.08),rgba(20,20,20,.96))}
-  .rewards-top{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  .rewards-top{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px}
   .reward-metric{border:1px solid var(--line);background:rgba(14,14,14,.45);border-radius:14px;padding:14px}
-  .reward-metric strong{display:block;color:var(--volt);font-family:var(--mono);font-size:25px;line-height:1;margin-bottom:6px}
+  .reward-metric strong{display:block;color:var(--volt);font-family:var(--mono);font-size:34px;line-height:1;margin-bottom:7px}
   .reward-metric span{display:block;color:var(--faint);font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+  .funding-note{color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin:-6px 0 14px}
   .draw{border-color:rgba(126,215,255,.36);background:rgba(126,215,255,.05);position:relative}
   .draw-pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#061015;border-radius:999px;padding:7px 10px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
   .prize{font-family:var(--mono);font-size:42px;font-weight:900;color:var(--accent);line-height:1}
@@ -415,10 +416,10 @@
             <div class="side-label">Rewards</div>
             <div class="side-card rewards-card">
               <div class="rewards-top">
-                <div class="reward-metric"><strong>$1,000</strong><span>Wallet balance</span></div>
-                <div class="reward-metric"><strong>$500</strong><span>Active draw</span></div>
+                <div class="reward-metric"><strong>$500</strong><span>Current prize draw</span></div>
               </div>
-              <p>One Station-funded rewards pool powers read rewards, share incentives, event rewards, referrals, and prize draws.</p>
+              <div class="funding-note">Funded from $1,000 sample rewards wallet</div>
+              <p>One draw runs at a time. Users earn BUX for actions, then use BUX to enter the active prize draw.</p>
               <div class="draw-stats">
                 <div class="draw-stat"><b>1,842</b><span>Entries</span></div>
                 <div class="draw-stat"><b>92K</b><span>BUX Burned</span></div>
