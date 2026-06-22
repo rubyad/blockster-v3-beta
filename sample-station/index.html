@@ -123,7 +123,7 @@
   .article-body h3{font-family:var(--disp);font-size:18px;line-height:1.15;letter-spacing:-.018em;margin-bottom:7px}
   .article-body p{color:var(--muted);font-size:12px;line-height:1.45}
   .sidebar{display:grid;gap:24px;align-self:start}
-  .side-sticky-group{display:grid;gap:24px;position:sticky;bottom:20px;align-self:end}
+  .side-sticky-group{display:grid;gap:24px;position:sticky;top:var(--sticky-top,20px);align-self:start}
   .side-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
   .side-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;padding:20px}
   .wallet{border-color:rgba(202,252,0,.26);background:rgba(202,252,0,.05)}
@@ -485,5 +485,21 @@
       <span><a href="/blockster-v3-beta/deck.pdf">Deck</a> · <a href="/blockster-v3-beta/">Apply</a></span>
     </footer>
   </main>
+  <script>
+    (() => {
+      const rail = document.querySelector(".side-sticky-group");
+      if (!rail) return;
+
+      const setStickyTop = () => {
+        const viewport = window.innerHeight || document.documentElement.clientHeight;
+        const top = viewport - rail.offsetHeight - 20;
+        rail.style.setProperty("--sticky-top", `${top}px`);
+      };
+
+      setStickyTop();
+      window.addEventListener("resize", setStickyTop, { passive: true });
+      window.addEventListener("load", setStickyTop, { once: true });
+    })();
+  </script>
 </body>
 </html>
