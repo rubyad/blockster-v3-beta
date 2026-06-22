@@ -122,7 +122,8 @@
   .article-body{padding:14px 14px 14px 0}
   .article-body h3{font-family:var(--disp);font-size:18px;line-height:1.15;letter-spacing:-.018em;margin-bottom:7px}
   .article-body p{color:var(--muted);font-size:12px;line-height:1.45}
-  .sidebar{display:grid;gap:24px;position:sticky;top:20px}
+  .sidebar{display:grid;gap:24px;align-self:start}
+  .side-tail{position:sticky;top:20px}
   .side-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
   .side-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;padding:20px}
   .wallet{border-color:rgba(202,252,0,.26);background:rgba(202,252,0,.05)}
@@ -163,7 +164,8 @@
     .actions{justify-content:flex-start;margin-top:18px}
     .subscriber-count{text-align:left}
     .masthead{grid-template-columns:repeat(2,1fr)}
-    .sidebar{position:static;margin-top:24px}
+    .sidebar{margin-top:24px}
+    .side-tail{position:static}
   }
   @media(max-width:620px){
     .top-nav{height:auto;min-height:58px;padding:14px 0;align-items:flex-start}
@@ -441,7 +443,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="side-tail">
             <div class="side-label">Upcoming events</div>
             <div class="side-card">
               <div class="events-list">
