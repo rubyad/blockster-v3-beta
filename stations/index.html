@@ -50,6 +50,21 @@
   .offer strong{display:block;font-family:var(--disp);font-size:34px;line-height:1;color:var(--text);letter-spacing:-.025em}
   .offer strong.volt{color:var(--volt)}
   .offer span{display:block;margin-top:8px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+  .station-stage{margin:34px auto 0;border:1px solid rgba(202,252,0,.18);border-radius:24px;overflow:hidden;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(16,14,11,.94) 46%,rgba(202,252,0,.05));box-shadow:0 30px 110px rgba(0,0,0,.34)}
+  .browser-bar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid var(--line);background:rgba(248,244,235,.04)}
+  .dots{display:flex;gap:7px}.dots span{width:9px;height:9px;border-radius:50%;background:rgba(248,244,235,.22)}.url{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+  .station-preview{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;padding:20px;text-align:left}
+  .preview-main{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(11,10,8,.76)}
+  .preview-cover{min-height:220px;background-image:linear-gradient(to top,rgba(11,10,8,.92),transparent 62%),url("https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1400&q=80");background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:22px}
+  .preview-cover h3{font-size:34px;line-height:1.02;max-width:520px}
+  .preview-side{display:grid;gap:14px}
+  .preview-panel{border:1px solid var(--line);border-radius:18px;background:rgba(11,10,8,.72);padding:18px}
+  .preview-panel strong{display:block;font-family:var(--disp);font-size:30px;line-height:1;color:var(--volt);letter-spacing:-.03em}
+  .preview-panel span,.preview-card span{display:block;margin-top:7px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  .preview-card{display:grid;grid-template-columns:86px 1fr;gap:13px;border:1px solid var(--line);border-radius:16px;background:rgba(248,244,235,.035);overflow:hidden}
+  .preview-card img{width:100%;height:100%;min-height:88px;object-fit:cover}
+  .preview-card div{padding:13px 13px 13px 0}
+  .preview-card b{display:block;font-size:14px;line-height:1.25}
   section{padding:54px 0 0}
   .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
   .section-head p{max-width:520px;color:var(--muted);font-size:14px;line-height:1.55}
@@ -57,9 +72,25 @@
   .grid.three{grid-template-columns:repeat(3,1fr)}
   .grid.two{grid-template-columns:repeat(2,1fr)}
   .card{background:rgba(16,14,11,.86);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 20px 80px rgba(0,0,0,.14)}
+  .card.lift{background:linear-gradient(135deg,rgba(202,252,0,.075),rgba(16,14,11,.9));border-color:rgba(202,252,0,.18)}
+  .card.violet{background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(16,14,11,.9));border-color:rgba(124,58,237,.28)}
+  .card.blue{background:linear-gradient(135deg,rgba(14,165,233,.12),rgba(16,14,11,.9));border-color:rgba(14,165,233,.24)}
   .card h3{font-size:22px;margin-bottom:8px}
   .card p{color:var(--muted);font-size:14px;line-height:1.55}
   .kicker{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:11px}
+  .operator{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .terminal{border:1px solid rgba(124,58,237,.28);border-radius:20px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(16,14,11,.92));padding:22px;min-height:100%}
+  .terminal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .msg{border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin-top:10px;color:var(--muted);font-size:14px;line-height:1.5;background:rgba(0,0,0,.22)}
+  .msg.user{margin-left:38px;background:rgba(248,244,235,.06);color:var(--text)}
+  .msg.agent{margin-right:38px;border-color:rgba(202,252,0,.2)}
+  .ops-list{display:grid;gap:12px}
+  .ops-item{display:grid;grid-template-columns:40px 1fr;gap:13px;align-items:start;border:1px solid var(--line);border-radius:16px;padding:15px;background:rgba(16,14,11,.86)}
+  .ops-icon{width:40px;height:40px;border-radius:13px;background:var(--volt);color:#080805;display:grid;place-items:center;font-family:var(--mono);font-weight:800}
+  .ops-item b{display:block;margin-bottom:4px}
+  .ops-item span{display:block;color:var(--muted);font-size:13px;line-height:1.45}
+  .channels{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .channel{font-family:var(--mono);font-size:10px;color:var(--text);border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:999px;padding:7px 9px}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .step{border:1px solid var(--line);border-radius:18px;background:rgba(16,14,11,.86);padding:22px}
   .n{width:32px;height:32px;border-radius:50%;border:1px solid rgba(202,252,0,.35);color:var(--volt);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:14px}
@@ -71,7 +102,7 @@
   footer{border-top:1px solid var(--line);margin-top:62px;padding-top:24px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   @media (max-width:900px){
     .offer{grid-template-columns:repeat(2,1fr)}
-    .grid.three,.grid.two,.steps{grid-template-columns:1fr}
+    .grid.three,.grid.two,.steps,.operator,.station-preview{grid-template-columns:1fr}
     .section-head{display:block}
     .section-head p{margin-top:12px}
   }
@@ -108,6 +139,21 @@
         <div><strong>$1k+</strong><span>Recommended launch test</span></div>
         <div><strong>20</strong><span>Founding Station spots</span></div>
       </div>
+      <div class="station-stage">
+        <div class="browser-bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">sample station preview</div></div>
+        <div class="station-preview">
+          <div class="preview-main">
+            <div class="preview-cover">
+              <h3>One branded home for stories, embeds, events, rewards, and subscribers.</h3>
+            </div>
+          </div>
+          <div class="preview-side">
+            <div class="preview-panel"><strong>$5,000</strong><span>Sample active prize draw</span></div>
+            <div class="preview-card"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781275037-da5bfcc2750aa57f.jpeg" alt=""><div><b>Launch story sent to subscribers</b><span>+6 BUX read reward</span></div></div>
+            <div class="preview-card"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779478683-a8d97b60694c509e.jpeg" alt=""><div><b>Embedded channel update</b><span>Email/SMS + sharing</span></div></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -115,10 +161,19 @@
         <h2>Electra — your AI agent — runs the operation.</h2>
         <p>Your Station is not just a page. Electra can operate it from Telegram or the web app, with you approving the important steps.</p>
       </div>
-      <div class="grid three">
-        <div class="card"><span class="kicker">Telegram</span><h3>Publish from chat</h3><p>Send Electra a prompt, link, video, announcement, or event. She drafts, formats, publishes, and sends it to subscribers.</p></div>
-        <div class="card"><span class="kicker">Campaigns</span><h3>Rewards, referrals, PR</h3><p>Launch read rewards, share rewards, referral campaigns, event reminders, PR wires, and paid traffic from one operating layer.</p></div>
-        <div class="card"><span class="kicker">Creators</span><h3>Invite contributors</h3><p>Electra can help source and invite writers, researchers, hosts, and video creators to produce content for your Station.</p></div>
+      <div class="operator">
+        <div class="terminal">
+          <div class="terminal-top"><span>Telegram command</span><span>Electra online</span></div>
+          <div class="msg user">Publish our stablecoin market update, turn on read/share rewards, and invite two contributors for follow-up coverage.</div>
+          <div class="msg agent">Draft ready. Reward campaign queued. Contributor invite list prepared. Approve publish?</div>
+          <div class="msg user">Approve.</div>
+          <div class="msg agent">Published to Station, sent to subscribers, reward draw updated, report scheduled.</div>
+        </div>
+        <div class="ops-list">
+          <div class="ops-item"><div class="ops-icon">01</div><div><b>Publish from chat</b><span>Send Electra a prompt, link, video, announcement, or event. She drafts, formats, publishes, and sends it to subscribers.</span></div></div>
+          <div class="ops-item"><div class="ops-icon">02</div><div><b>Run growth campaigns</b><span>Launch read rewards, share rewards, referral campaigns, event reminders, PR wires, and paid traffic from one operating layer.</span></div></div>
+          <div class="ops-item"><div class="ops-icon">03</div><div><b>Invite contributors</b><span>Source and invite writers, researchers, hosts, and video creators to produce content for your Station.</span></div></div>
+        </div>
       </div>
     </section>
 
@@ -141,12 +196,12 @@
         <p>Your Station is the home base for your brand's content and growth loop. It brings your channels together, grows subscribers, and turns readers into distribution.</p>
       </div>
       <div class="grid three">
-        <div class="card"><span class="kicker">Publish</span><h3>Stories, video, research</h3><p>Publish articles, interviews, tutorials, explainers, videos, market updates, product news, and launch content.</p></div>
-        <div class="card"><span class="kicker">Embed</span><h3>Eight social networks</h3><p>Pull content from X, YouTube, TikTok, Instagram, Reddit, Twitch, Spotify, and Apple Podcasts into one Station.</p></div>
-        <div class="card"><span class="kicker">Distribution</span><h3>Subscribers who share</h3><p>Build a subscriber list, send email/SMS updates, and reward readers for sharing across their own social networks.</p></div>
+        <div class="card lift"><span class="kicker">Publish</span><h3>Stories, video, research</h3><p>Publish articles, interviews, tutorials, explainers, videos, market updates, product news, and launch content.</p></div>
+        <div class="card blue"><span class="kicker">Embed</span><h3>Eight social networks</h3><p>Pull content from your existing channels into one Station.</p><div class="channels"><span class="channel">X</span><span class="channel">YouTube</span><span class="channel">TikTok</span><span class="channel">Instagram</span><span class="channel">Reddit</span><span class="channel">Twitch</span><span class="channel">Spotify</span><span class="channel">Apple Podcasts</span></div></div>
+        <div class="card violet"><span class="kicker">Distribution</span><h3>Subscribers who share</h3><p>Build a subscriber list, send email/SMS updates, and reward readers for sharing across their own social networks.</p></div>
         <div class="card"><span class="kicker">Snowball</span><h3>Rewards and referrals</h3><p>Readers earn BUX for actions and referrals, then use BUX to enter raffles funded by your Station rewards wallet.</p></div>
-        <div class="card"><span class="kicker">Events</span><h3>Spaces, webinars, AMAs</h3><p>Publish X Spaces, YouTube webinars, livestreams, AMAs, launches, conference appearances, and IRL meetups.</p></div>
-        <div class="card"><span class="kicker">Electra</span><h3>AI Station operator</h3><p>Electra can publish, run rewards, prep PR wires, invite contributors, promote events, and report results from Telegram or the web app.</p></div>
+        <div class="card lift"><span class="kicker">Events</span><h3>Spaces, webinars, AMAs</h3><p>Publish X Spaces, YouTube webinars, livestreams, AMAs, launches, conference appearances, and IRL meetups.</p></div>
+        <div class="card blue"><span class="kicker">Electra</span><h3>AI Station operator</h3><p>Electra can publish, run rewards, prep PR wires, invite contributors, promote events, and report results from Telegram or the web app.</p></div>
       </div>
     </section>
 
