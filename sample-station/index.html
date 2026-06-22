@@ -49,6 +49,7 @@
   .stat strong{display:block;font-family:var(--disp);font-size:30px;line-height:1;letter-spacing:-.03em}
   .stat span{display:block;margin-top:7px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
   .content{display:grid;grid-template-columns:1.5fr .9fr;gap:18px;padding:18px;background:rgba(11,10,8,.34)}
+  .operator-band{padding:18px 18px 0;background:rgba(11,10,8,.34)}
   .top-band{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:18px 18px 0;background:rgba(11,10,8,.34)}
   .card{border:1px solid var(--line);background:rgba(17,16,13,.9);border-radius:18px;padding:20px}
   .card h2,.card h3{font-family:var(--disp);font-weight:800;letter-spacing:-.025em}
@@ -69,6 +70,11 @@
   .event-row{display:grid;gap:10px;margin-top:14px}
   .event{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
   .event b{display:block;font-size:14px;margin-bottom:5px}
+  .ops{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+  .op{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
+  .op b{display:block;color:var(--volt);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+  .channels{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+  .channel{font-family:var(--mono);font-size:10px;color:var(--text);border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:999px;padding:7px 9px}
   .reward{background:radial-gradient(90% 90% at 50% 0%, rgba(202,252,0,.13), rgba(17,16,13,.92) 58%);border-color:rgba(202,252,0,.24)}
   .reward .prize{font-family:var(--disp);font-size:46px;line-height:1;color:var(--volt);letter-spacing:-.04em;margin:8px 0 6px}
   .actions{display:grid;gap:9px;margin-top:15px}
@@ -89,7 +95,7 @@
   @media(max-width:920px){
     .station-head,.content,.top-band{grid-template-columns:1fr;display:block}
     .pill{margin-top:18px}
-    .stats,.flow,.contributors{grid-template-columns:repeat(2,1fr)}
+    .stats,.flow,.contributors,.ops{grid-template-columns:repeat(2,1fr)}
     .stat:nth-child(2){border-right:0}
     .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
     .content,.top-band{display:grid}
@@ -100,7 +106,7 @@
     .nav-actions{flex-wrap:wrap;justify-content:flex-end}
     .cover{padding:22px;min-height:330px}
     .identity{align-items:flex-start;flex-direction:column}
-    .stats,.flow,.mini-grid,.contributors{grid-template-columns:1fr}
+    .stats,.flow,.mini-grid,.contributors,.ops{grid-template-columns:1fr}
     .stat{border-right:0;border-bottom:1px solid var(--line)}
     .stat:last-child{border-bottom:0}
     .story{grid-template-columns:1fr}
@@ -128,7 +134,7 @@
               <div>
                 <div class="eyebrow">Payments · onboarding · Web3 access</div>
                 <h1>MoonPay Station</h1>
-                <p class="sub">A sample branded Station for publishing customer stories, product updates, webinars, tutorials, reward campaigns, and subscriber updates.</p>
+                <p class="sub">A sample branded Station where Electra can publish, run rewards, prep PR wires, invite contributors, promote events, and send email/SMS updates from Telegram or the web app.</p>
               </div>
             </div>
           </div>
@@ -141,6 +147,20 @@
         <div class="stat"><strong>4.2k</strong><span>Reads this week</span></div>
         <div class="stat"><strong>816</strong><span>Social shares</span></div>
         <div class="stat"><strong>291</strong><span>New referrals</span></div>
+      </div>
+
+      <div class="operator-band">
+        <section class="card">
+          <span class="kicker">Electra command center</span>
+          <h2>Run the Station from Telegram.</h2>
+          <p>Send Electra a message to publish a story, launch a rewards draw, prep a PR wire, invite contributors, promote an event, or get the daily growth report.</p>
+          <div class="ops">
+            <div class="op"><b>Publish</b><p>Draft and post stories, videos, tutorials, and announcements.</p></div>
+            <div class="op"><b>Rewards</b><p>Turn on read, share, RSVP, and referral rewards.</p></div>
+            <div class="op"><b>PR wire</b><p>Package approved content for wire distribution.</p></div>
+            <div class="op"><b>Contributors</b><p>Invite writers, hosts, researchers, and creators.</p></div>
+          </div>
+        </section>
       </div>
 
       <div class="top-band">
@@ -168,6 +188,10 @@
         <section class="card">
           <span class="kicker">Latest publishing</span>
           <h2>Stories, videos, tutorials, and events in one place.</h2>
+          <p>Embed posts and media from eight networks, then turn that content into subscriber updates and reward campaigns.</p>
+          <div class="channels">
+            <span class="channel">X</span><span class="channel">YouTube</span><span class="channel">TikTok</span><span class="channel">Instagram</span><span class="channel">Reddit</span><span class="channel">Twitch</span><span class="channel">Spotify</span><span class="channel">Apple Podcasts</span>
+          </div>
           <div class="story-list">
             <article class="story">
               <div class="thumb">Article</div>
@@ -211,12 +235,12 @@
 
         <section class="card">
           <span class="kicker">Distribution loop</span>
-          <h2>Publishing turns into subscriber growth.</h2>
+          <h2>Rewards and referrals make it snowball.</h2>
           <div class="flow">
-            <div><b>01 Publish</b><p>Electra drafts and publishes from the web app or Telegram.</p></div>
-            <div><b>02 Notify</b><p>Email/SMS updates go to Station subscribers.</p></div>
-            <div><b>03 Reward</b><p>Readers earn BUX for reading, sharing, and referring.</p></div>
-            <div><b>04 Measure</b><p>Track reads, shares, referrals, entries, and new subscribers.</p></div>
+            <div><b>01 Embed</b><p>Bring content from social channels into the Station.</p></div>
+            <div><b>02 Notify</b><p>Email/SMS updates go to subscribers.</p></div>
+            <div><b>03 Reward</b><p>Readers earn BUX for shares and friend referrals.</p></div>
+            <div><b>04 Snowball</b><p>New subscribers create more readers, shares, and referrals.</p></div>
           </div>
         </section>
 
