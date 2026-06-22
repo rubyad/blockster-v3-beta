@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample V3 Station — Blockster</title>
+<meta name="description" content="Illustrative sample Blockster V3 Station showing publishing, subscribers, email/SMS distribution, BUX rewards, and analytics." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sample V3 Station — Blockster" />
+<meta property="og:description" content="See how a Blockster V3 Station could publish content, grow subscribers, distribute updates, and reward readers." />
+<meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/sample-station/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0A08;--panel:#11100D;--panel2:#181510;--line:rgba(248,244,235,.11);
+    --text:#F8F4EB;--muted:rgba(248,244,235,.62);--faint:rgba(248,244,235,.38);
+    --volt:#CAFC00;--blue:#0EA5E9;--violet:#7C3AED;--orange:#F59E0B;
+    --disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);
+    background-image:radial-gradient(80% 48% at 20% -10%, rgba(14,165,233,.16), transparent 58%),radial-gradient(70% 55% at 85% 2%, rgba(202,252,0,.10), transparent 55%)}
+  a{color:inherit;text-decoration:none}
+  .shell{max-width:1180px;margin:0 auto;padding:0 24px 72px}
+  .nav{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
+  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.35)}
+  .nav-actions{display:flex;gap:10px;align-items:center}
+  .nav-link{border:1px solid rgba(248,244,235,.16);border-radius:999px;padding:9px 13px;color:var(--muted);font-size:12px;font-weight:800}
+  .nav-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
+  .notice{margin:22px 0 0;border:1px solid rgba(202,252,0,.24);background:rgba(202,252,0,.07);border-radius:14px;padding:13px 15px;color:var(--muted);font-size:12px;line-height:1.5}
+  .notice b{color:var(--volt)}
+  .station{margin-top:22px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(17,16,13,.88);box-shadow:0 30px 100px rgba(0,0,0,.24)}
+  .cover{min-height:260px;background:linear-gradient(135deg,#111827 0%,#0EA5E9 42%,#7C3AED 100%);position:relative;padding:28px;display:flex;align-items:flex-end}
+  .cover:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 76% 20%, rgba(202,252,0,.24), transparent 54%),linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.42))}
+  .station-head{position:relative;z-index:1;display:flex;align-items:end;justify-content:space-between;gap:24px;width:100%}
+  .identity{display:flex;gap:16px;align-items:center}
+  .logo{width:76px;height:76px;border-radius:18px;background:#fff;color:#121212;display:grid;place-items:center;font-family:var(--disp);font-size:31px;font-weight:800;letter-spacing:-.06em;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
+  h1{font-family:var(--disp);font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-.045em}
+  .sub{max-width:660px;color:var(--muted);font-size:16px;line-height:1.55;margin-top:12px}
+  .pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 12px;background:rgba(0,0,0,.24);font-size:11px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:rgba(11,10,8,.74)}
+  .stat{padding:18px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat strong{display:block;font-family:var(--disp);font-size:30px;line-height:1;letter-spacing:-.03em}
+  .stat span{display:block;margin-top:7px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+  .content{display:grid;grid-template-columns:1.5fr .9fr;gap:18px;padding:18px;background:rgba(11,10,8,.34)}
+  .top-band{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:18px 18px 0;background:rgba(11,10,8,.34)}
+  .card{border:1px solid var(--line);background:rgba(17,16,13,.9);border-radius:18px;padding:20px}
+  .card h2,.card h3{font-family:var(--disp);font-weight:800;letter-spacing:-.025em}
+  .card h2{font-size:28px}
+  .card h3{font-size:20px;margin-bottom:7px}
+  .card p{color:var(--muted);font-size:13px;line-height:1.55}
+  .kicker{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:10px}
+  .story-list{display:grid;gap:12px;margin-top:16px}
+  .story{display:grid;grid-template-columns:96px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(248,244,235,.03)}
+  .thumb{border-radius:11px;min-height:72px;background:linear-gradient(135deg,rgba(14,165,233,.9),rgba(124,58,237,.88));display:grid;place-items:center;font-family:var(--mono);font-size:10px;color:white;text-transform:uppercase;letter-spacing:.12em}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .tag{font-family:var(--mono);font-size:10px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:5px 8px}
+  .contributors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .person{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
+  .avatar{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--volt),var(--blue));display:grid;place-items:center;color:#080805;font-weight:900;font-size:12px;margin-bottom:10px}
+  .person b{display:block;font-size:13px}
+  .person span{display:block;margin-top:5px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+  .event-row{display:grid;gap:10px;margin-top:14px}
+  .event{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
+  .event b{display:block;font-size:14px;margin-bottom:5px}
+  .reward{background:radial-gradient(90% 90% at 50% 0%, rgba(202,252,0,.13), rgba(17,16,13,.92) 58%);border-color:rgba(202,252,0,.24)}
+  .reward .prize{font-family:var(--disp);font-size:46px;line-height:1;color:var(--volt);letter-spacing:-.04em;margin:8px 0 6px}
+  .actions{display:grid;gap:9px;margin-top:15px}
+  .action{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--muted);font-size:12px}
+  .action b{color:var(--volt);font-family:var(--mono);font-size:11px}
+  .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  .mini{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
+  .mini strong{display:block;font-family:var(--disp);font-size:24px;line-height:1;color:var(--text)}
+  .mini span{display:block;margin-top:6px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .flow div{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(17,16,13,.8)}
+  .flow b{display:block;color:var(--volt);font-family:var(--mono);font-size:11px;margin-bottom:7px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 22px;font-weight:800;font-size:14px}
+  .btn-primary{background:var(--volt);color:#080805}
+  .btn-ghost{border:1px solid rgba(248,244,235,.16);color:var(--muted)}
+  footer{border-top:1px solid var(--line);margin-top:42px;padding-top:24px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media(max-width:920px){
+    .station-head,.content,.top-band{grid-template-columns:1fr;display:block}
+    .pill{margin-top:18px}
+    .stats,.flow,.contributors{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+    .content,.top-band{display:grid}
+  }
+  @media(max-width:620px){
+    .shell{padding-inline:16px}
+    .nav{height:auto;min-height:68px;padding:14px 0;align-items:flex-start}
+    .nav-actions{flex-wrap:wrap;justify-content:flex-end}
+    .cover{padding:22px;min-height:330px}
+    .identity{align-items:flex-start;flex-direction:column}
+    .stats,.flow,.mini-grid,.contributors{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:0}
+    .story{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <a class="brand" href="/blockster-v3-beta/stations/"><span class="mark"></span>BLOCKSTER</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="/blockster-v3-beta/stations/">For stations</a>
+        <a class="nav-link primary" href="/blockster-v3-beta/">Apply</a>
+      </div>
+    </header>
+
+    <div class="notice"><b>Sample V3 Station: MoonPay.</b> Illustrative mockup only. This is not a live Station, customer announcement, or paid partnership.</div>
+
+    <main class="station">
+      <section class="cover">
+        <div class="station-head">
+          <div>
+            <div class="identity">
+              <div class="logo">MP</div>
+              <div>
+                <div class="eyebrow">Payments · onboarding · Web3 access</div>
+                <h1>MoonPay Station</h1>
+                <p class="sub">A sample branded Station for publishing customer stories, product updates, webinars, tutorials, reward campaigns, and subscriber updates.</p>
+              </div>
+            </div>
+          </div>
+          <span class="pill">Sample V3 Station</span>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="stat"><strong>12.8k</strong><span>Subscribers</span></div>
+        <div class="stat"><strong>4.2k</strong><span>Reads this week</span></div>
+        <div class="stat"><strong>816</strong><span>Social shares</span></div>
+        <div class="stat"><strong>291</strong><span>New referrals</span></div>
+      </div>
+
+      <div class="top-band">
+        <section class="card">
+          <span class="kicker">Contributor network</span>
+          <h2>Bring in writers, hosts, researchers, and video creators.</h2>
+          <p>Stations can invite approved creators to produce stories, tutorials, interviews, research, event coverage, and videos. Contributors are hired and paid directly by the Station.</p>
+          <div class="contributors">
+            <div class="person"><div class="avatar">AR</div><b>Research analyst</b><span>Market explainers · reports</span></div>
+            <div class="person"><div class="avatar">VH</div><b>Video host</b><span>Interviews · tutorials</span></div>
+            <div class="person"><div class="avatar">CE</div><b>Crypto editor</b><span>Product stories · launches</span></div>
+          </div>
+        </section>
+        <aside class="card">
+          <span class="kicker">Upcoming events</span>
+          <h2>Events grow the Station too.</h2>
+          <div class="event-row">
+            <div class="event"><b>YouTube webinar</b><p>Onboarding the next million users. RSVP +100 BUX, reminders by email/SMS.</p></div>
+            <div class="event"><b>X Space AMA</b><p>Product Q&A with contributor-hosted clips and post-event recap.</p></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="content">
+        <section class="card">
+          <span class="kicker">Latest publishing</span>
+          <h2>Stories, videos, tutorials, and events in one place.</h2>
+          <div class="story-list">
+            <article class="story">
+              <div class="thumb">Article</div>
+              <div>
+                <h3>How crypto payments are becoming mainstream</h3>
+                <p>Product education story with embedded video, email/SMS notification, and share rewards enabled.</p>
+                <div class="meta"><span class="tag">Read +75 BUX</span><span class="tag">Share +150 BUX</span><span class="tag">Sent to subscribers</span></div>
+              </div>
+            </article>
+            <article class="story">
+              <div class="thumb">Webinar</div>
+              <div>
+                <h3>Onboarding the next million users</h3>
+                <p>Sample YouTube webinar event with RSVPs, reminders, attendance rewards, and post-event follow-up.</p>
+                <div class="meta"><span class="tag">RSVP +100 BUX</span><span class="tag">Email/SMS reminders</span><span class="tag">Event analytics</span></div>
+              </div>
+            </article>
+            <article class="story">
+              <div class="thumb">Tutorial</div>
+              <div>
+                <h3>Buying crypto safely in under five minutes</h3>
+                <p>Educational tutorial designed for search, subscribers, and social sharing from readers.</p>
+                <div class="meta"><span class="tag">Tutorial</span><span class="tag">Subscriber growth</span><span class="tag">Reward entries</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="card reward">
+          <span class="kicker">Reward campaign</span>
+          <h2>Read + share to enter the rewards draw.</h2>
+          <div class="prize">$500</div>
+          <p>Sample prize pool funded from the Station rewards wallet. Readers earn BUX points for verified actions and use them to enter the draw.</p>
+          <div class="actions">
+            <div class="action"><span>Read this story</span><b>+75 BUX</b></div>
+            <div class="action"><span>Share on X</span><b>+150 BUX</b></div>
+            <div class="action"><span>Refer a subscriber</span><b>+250 BUX</b></div>
+            <div class="action"><span>RSVP to webinar</span><b>+100 BUX</b></div>
+          </div>
+        </aside>
+
+        <section class="card">
+          <span class="kicker">Distribution loop</span>
+          <h2>Publishing turns into subscriber growth.</h2>
+          <div class="flow">
+            <div><b>01 Publish</b><p>Electra drafts and publishes from the web app or Telegram.</p></div>
+            <div><b>02 Notify</b><p>Email/SMS updates go to Station subscribers.</p></div>
+            <div><b>03 Reward</b><p>Readers earn BUX for reading, sharing, and referring.</p></div>
+            <div><b>04 Measure</b><p>Track reads, shares, referrals, entries, and new subscribers.</p></div>
+          </div>
+        </section>
+
+        <aside class="card">
+          <span class="kicker">Analytics snapshot</span>
+          <h2>Audience data available.</h2>
+          <div class="mini-grid">
+            <div class="mini"><strong>38%</strong><span>Email open rate</span></div>
+            <div class="mini"><strong>19%</strong><span>SMS click rate</span></div>
+            <div class="mini"><strong>2.4x</strong><span>Reward lift</span></div>
+            <div class="mini"><strong>$1.72</strong><span>Cost / subscriber</span></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/blockster-v3-beta/">Apply for a Founding Station</a>
+      <a class="btn btn-ghost" href="/blockster-v3-beta/stations/">Back to Station overview</a>
+    </div>
+
+    <footer>
+      <span>Blockster · Sample V3 Station</span>
+      <span><a href="/blockster-v3-beta/deck.pdf">Deck</a> · <a href="/blockster-v3-beta/">Apply</a></span>
+    </footer>
+  </div>
+</body>
+</html>
