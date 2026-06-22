@@ -16,14 +16,14 @@
   :root{
     --bg:#0E0E0E;--card:#141414;--muted-card:#181818;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
     --text:#F8F4EB;--muted:rgba(248,244,235,.58);--faint:rgba(248,244,235,.34);
-    --accent:#7ED7FF;--volt:#CAFC00;--violet:#7C3AED;--orange:#F59E0B;
+    --accent:#7B19FF;--moon:#7B19FF;--moon-soft:#A368FF;--volt:#CAFC00;--violet:#7C3AED;--orange:#F59E0B;
     --disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-font-smoothing:antialiased}
   body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui)}
   a{color:inherit;text-decoration:none}
-  .accent-bar{height:3px;background:var(--accent)}
+  .accent-bar{height:3px;background:linear-gradient(90deg,var(--moon),var(--moon-soft),var(--volt))}
   .shell{max-width:1180px;margin:0 auto;padding:0 20px}
   .top-nav{height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
@@ -36,13 +36,14 @@
   .notice-inner b{color:var(--volt)}
   .sample-flag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.35);background:rgba(202,252,0,.09);color:var(--volt);border-radius:999px;padding:8px 11px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
   .hero{position:relative;overflow:hidden;background:#0E0E0E;border-bottom:1px solid var(--line)}
-  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 15% -5%, rgba(126,215,255,.16), transparent 65%);pointer-events:none}
+  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 15% -5%, rgba(123,25,255,.24), transparent 65%);pointer-events:none}
   .hero:after{content:"";position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
   .back{position:relative;display:inline-flex;align-items:center;gap:6px;margin-top:22px;color:var(--faint);font-size:12px;font-weight:700}
   .hero-main{position:relative;padding:28px 0 36px}
   .hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
   .identity{display:flex;gap:16px;align-items:center}
-  .logo{width:66px;height:66px;border-radius:14px;display:grid;place-items:center;background:#fff;color:#121212;border:1px solid var(--line2);font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-.06em;box-shadow:0 16px 40px rgba(0,0,0,.34)}
+  .logo{width:66px;height:66px;border-radius:14px;display:grid;place-items:center;background:var(--moon);border:1px solid var(--line2);overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.34)}
+  .logo img{width:100%;height:100%;object-fit:cover;display:block}
   .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
   h1{font-family:var(--disp);font-size:clamp(34px,5vw,54px);line-height:1;letter-spacing:-.035em}
   .desc{max-width:720px;margin-top:22px;color:rgba(248,244,235,.46);font-size:15px;line-height:1.65;font-weight:400}
@@ -52,13 +53,15 @@
   .subscriber-count span{display:block;margin-top:4px;color:var(--faint);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
   .button{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:999px;padding:10px 15px;font-size:13px;font-weight:800;white-space:nowrap}
   .button.white{background:#fff;color:#0A0A0A}
-  .button.accent{background:var(--accent);color:#061015}
+  .button.accent{background:var(--accent);color:#fff}
   .button.dark{border:1px solid var(--line2);background:rgba(255,255,255,.07);color:var(--muted)}
   .socials{display:flex;gap:8px;align-items:center}
   .social{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:11px;font-weight:800;color:rgba(255,255,255,.72)}
   .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
   .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 11px;color:rgba(255,255,255,.7);font-size:12px;font-weight:700}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  .brand-color{display:inline-flex;align-items:center;gap:8px}
+  .swatch{width:13px;height:13px;border-radius:4px;background:var(--moon);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
   .stats{border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
   .stats-row{display:flex;overflow-x:auto}
   .stat{flex:0 0 auto;padding:17px 34px 17px 0}
@@ -76,7 +79,8 @@
   .masthead-title span{color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
   .masthead{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .person{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px}
-  .avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#061015;font-weight:900;font-size:12px}
+  .avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;overflow:hidden;border:1px solid var(--line2);flex:none}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
   .person b{display:block;font-size:13px}
   .person span{display:block;margin-top:3px;color:var(--faint);font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase}
   .feed-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
@@ -86,7 +90,8 @@
   .layout{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start}
   .main-feed{display:grid;gap:18px}
   .feature{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden}
-  .image{height:250px;background:linear-gradient(135deg,rgba(126,215,255,.7),rgba(124,58,237,.9));position:relative}
+  .image{height:250px;background:linear-gradient(135deg,rgba(126,215,255,.7),rgba(124,58,237,.9));position:relative;overflow:hidden}
+  .image img{width:100%;height:100%;object-fit:cover;display:block}
   .image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,14,.86),transparent 60%)}
   .reward-badge{position:absolute;top:14px;right:14px;z-index:1;border:1px solid var(--line);background:rgba(14,14,14,.8);border-radius:999px;padding:8px 11px;color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:800}
   .feature-body{padding:22px}
@@ -96,9 +101,17 @@
   .feature p,.small-card p,.side-card p{color:var(--muted);font-size:13px;line-height:1.55}
   .small-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .small-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden}
-  .small-img{height:118px;background:linear-gradient(135deg,rgba(202,252,0,.55),rgba(14,165,233,.7))}
+  .small-img{height:118px;background:linear-gradient(135deg,rgba(202,252,0,.55),rgba(14,165,233,.7));overflow:hidden}
+  .small-img img{width:100%;height:100%;object-fit:cover;display:block}
   .small-card .body{padding:16px}
   .small-card h3{font-family:var(--disp);font-size:19px;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+  .article-list{display:grid;gap:12px}
+  .article-row{display:grid;grid-template-columns:112px 1fr;gap:14px;border:1px solid var(--line);background:var(--card);border-radius:16px;overflow:hidden}
+  .article-thumb{min-height:96px;background:#202020;overflow:hidden}
+  .article-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .article-body{padding:14px 14px 14px 0}
+  .article-body h3{font-family:var(--disp);font-size:18px;line-height:1.15;letter-spacing:-.018em;margin-bottom:7px}
+  .article-body p{color:var(--muted);font-size:12px;line-height:1.45}
   .sidebar{display:grid;gap:24px;position:sticky;top:20px}
   .side-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
   .side-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;padding:20px}
@@ -125,6 +138,8 @@
   .module h3{font-family:var(--disp);font-size:21px;letter-spacing:-.02em;margin-bottom:8px}
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
   .chip{border:1px solid rgba(126,215,255,.32);background:rgba(126,215,255,.08);border-radius:999px;padding:7px 9px;color:var(--text);font-family:var(--mono);font-size:10px}
+  .brand-card{border-color:rgba(123,25,255,.38);background:linear-gradient(135deg,rgba(123,25,255,.16),rgba(20,20,20,.92))}
+  .brand-card .brand-swatch{height:78px;border-radius:14px;background:var(--moon);display:flex;align-items:flex-end;justify-content:space-between;padding:12px;color:#fff;font-family:var(--mono);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:13px}
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:38px 0 52px}
   footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   @media(max-width:940px){
@@ -140,6 +155,8 @@
     .identity{align-items:flex-start;flex-direction:column}
     .actions{align-items:flex-start}
     .small-grid,.masthead{grid-template-columns:1fr}
+    .article-row{grid-template-columns:1fr}
+    .article-body{padding:14px}
     .image{height:190px}
   }
 </style>
@@ -168,7 +185,7 @@
           <div>
             <div class="sample-flag"><span class="dot"></span>Sample page</div>
             <div class="identity">
-              <div class="logo">MP</div>
+              <div class="logo"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1765807041-9b4edc4ef76f1208.jpg" alt="MoonPay sample logo"></div>
               <div>
                 <div class="eyebrow">Payments · Onboarding · Web3 access</div>
                 <h1>MoonPay Station</h1>
@@ -177,6 +194,7 @@
             <p class="desc">A sample V3 Station showing the actual Station experience: articles, embedded social content, events, reward campaigns, contributors, subscriber growth, and Electra running the operation from Telegram or the web app.</p>
             <div class="pills">
               <span class="pill"><span class="dot"></span>Reward Pool Active</span>
+              <span class="pill brand-color"><span class="swatch"></span>MoonPay Purple</span>
               <span class="pill">Rewards Balance $1,000</span>
               <span class="pill">Event This Week</span>
               <span class="pill">Updated 2h ago</span>
@@ -232,12 +250,12 @@
         <span>6 contributors</span>
       </div>
       <div class="masthead">
-        <div class="person"><div class="avatar">AR</div><div><b>Research analyst</b><span>writer</span></div></div>
-        <div class="person"><div class="avatar">VH</div><div><b>Video host</b><span>host</span></div></div>
-        <div class="person"><div class="avatar">CE</div><div><b>Crypto editor</b><span>editor</span></div></div>
-        <div class="person"><div class="avatar">EM</div><div><b>Event moderator</b><span>moderator</span></div></div>
-        <div class="person"><div class="avatar">PR</div><div><b>PR producer</b><span>wire support</span></div></div>
-        <div class="person"><div class="avatar">CT</div><div><b>Community lead</b><span>referrals</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=research-analyst" alt=""></div><div><b>Research analyst</b><span>writer</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=video-host" alt=""></div><div><b>Video host</b><span>host</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=crypto-editor" alt=""></div><div><b>Crypto editor</b><span>editor</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=event-moderator" alt=""></div><div><b>Event moderator</b><span>moderator</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=pr-producer" alt=""></div><div><b>PR producer</b><span>wire support</span></div></div>
+        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=community-lead" alt=""></div><div><b>Community lead</b><span>referrals</span></div></div>
       </div>
     </section>
 
@@ -255,29 +273,99 @@
       <div class="layout">
         <div class="main-feed">
           <article class="feature">
-            <div class="image"><span class="reward-badge">+75 BUX</span></div>
+            <div class="image">
+              <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1400&q=80" alt="">
+              <span class="reward-badge">+100 BUX</span>
+            </div>
             <div class="feature-body">
               <div class="meta"><b>Latest</b><span>2h ago</span></div>
               <h3>Every Channel, One Station</h3>
-              <p>Sample product education story with embedded video, subscriber notification, and share rewards enabled.</p>
+              <p>X, YouTube, Twitch, Spotify, Apple Podcasts, TikTok, Instagram, and Reddit embedded live from a bare link.</p>
             </div>
           </article>
 
           <div class="small-grid">
             <article class="small-card">
-              <div class="small-img"></div>
+              <div class="small-img"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781275037-da5bfcc2750aa57f.jpeg" alt=""></div>
               <div class="body">
-                <div class="meta"><span>4h ago</span><b>+10 BUX</b></div>
-                <h3>MoonPay becomes first crypto onramp integrated into ChatGPT apps</h3>
-                <p>Short tutorial designed for search, subscribers, and social sharing.</p>
+                <div class="meta"><span>4h ago</span><b>+6 BUX</b></div>
+                <h3>MoonPay Adds Former PayPal, NYSE, VMware and Sotheby's Leaders as Crypto Payments Go Mainstream</h3>
+                <p>Leadership news distributed to subscribers with a lower article-read reward.</p>
               </div>
             </article>
             <article class="small-card">
-              <div class="small-img"></div>
+              <div class="small-img"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781098654-fa99f39685f4e3a9.jpeg" alt=""></div>
               <div class="body">
-                <div class="meta"><span>Yesterday</span><b>+8 BUX</b></div>
+                <div class="meta"><span>Yesterday</span><b>+10 BUX</b></div>
+                <h3>World Series of Poker Brings Crypto to Poker's Biggest Stage Through Solana  MoonPay</h3>
+                <p>Stablecoin payments story with event and partner distribution potential.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="article-list">
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781013430-8efdb2dadeafe80b.jpeg" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>2 days ago</span><b>+8 BUX</b></div>
+                <h3>Dogecoin Payments Go Live Across More Than 6,000 Merchants Through MoonPay Partnership</h3>
+                <p>Merchant adoption story with share and referral rewards available.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1780408395-ae32cfac0fcc2f3e.jpeg" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>3 days ago</span><b>+10 BUX</b></div>
+                <h3>Franklin Templeton & MoonPay Are Building a Bridge Between Stablecoins & Tokenized Funds</h3>
+                <p>Research-backed explainer for tokenized finance subscribers.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779478683-a8d97b60694c509e.jpeg" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>4 days ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay becomes first crypto onramp integrated into ChatGPT apps</h3>
+                <p>AI-native commerce story with email/SMS distribution enabled.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779373181-fa72492b89dec77c.png" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>5 days ago</span><b>+8 BUX</b></div>
                 <h3>MoonPay wants to be the infrastructure layer behind tokenized finance</h3>
                 <p>Research-backed explainer created by a Station contributor.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1778770350-daabca4b81f1208e.jpeg" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>6 days ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay Launches One-Tap Crypto Checkout Across 100+ Countries</h3>
+                <p>Product launch coverage for search, subscribers, and social sharing.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1778511336-7f1f604ca640b4c7.png" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>1 week ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay Acquires Dawn Labs, Launchs AI Trading Agent That Turns Ideas Into Live Strategies</h3>
+                <p>AI trading agent announcement with contributor and PR wire support.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1777903091-15eb8b26aa8b7637.jpeg" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>1 week ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay Just Gave AI Agents a Way to Spend in the Real World</h3>
+                <p>Programmable finance article with a standard read reward.</p>
+              </div>
+            </article>
+            <article class="article-row">
+              <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1777492629-3302dcbaf3533c3b.avif" alt=""></div>
+              <div class="article-body">
+                <div class="meta"><span>1 week ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay Acquires Sodot to Launch Institutional Crypto Infrastructure Division</h3>
+                <p>Institutional infrastructure update for enterprise readers.</p>
               </div>
             </article>
           </div>
@@ -292,6 +380,14 @@
         </div>
 
         <aside class="sidebar">
+          <div>
+            <div class="side-label">Station brand</div>
+            <div class="side-card brand-card">
+              <div class="brand-swatch"><span>MoonPay purple</span><span>#7B19FF</span></div>
+              <p>Sample Station using the MoonPay logo, purple accent color, article covers, and reward pattern to show how a branded Station can look.</p>
+            </div>
+          </div>
+
           <div>
             <div class="side-label">Electra command center</div>
             <div class="side-card">
