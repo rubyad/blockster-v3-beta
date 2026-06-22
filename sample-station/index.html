@@ -78,6 +78,9 @@
   .masthead-title h2,.feed-title h2{font-family:var(--disp);font-size:22px;letter-spacing:-.02em}
   .masthead-title span{color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
   .masthead{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .contributors-card .masthead{grid-template-columns:1fr;gap:10px}
+  .contributors-card .masthead-title{border-bottom:0;padding-bottom:0;margin-bottom:12px}
+  .contributors-card .masthead-title h2{font-size:18px}
   .person{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px}
   .avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;overflow:hidden;border:1px solid var(--line2);flex:none}
   .avatar img{width:100%;height:100%;object-fit:cover;display:block}
@@ -258,21 +261,6 @@
 
   <main class="shell">
     <section class="section">
-      <div class="masthead-title">
-        <h2>The masthead</h2>
-        <span>6 contributors</span>
-      </div>
-      <div class="masthead">
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=research-analyst" alt=""></div><div><b>Research analyst</b><span>writer</span></div></div>
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=video-host" alt=""></div><div><b>Video host</b><span>host</span></div></div>
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=crypto-editor" alt=""></div><div><b>Crypto editor</b><span>editor</span></div></div>
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=event-moderator" alt=""></div><div><b>Event moderator</b><span>moderator</span></div></div>
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=pr-producer" alt=""></div><div><b>PR producer</b><span>wire support</span></div></div>
-        <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=community-lead" alt=""></div><div><b>Community lead</b><span>referrals</span></div></div>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="feed-head">
         <div class="feed-title"><h2>Feed</h2></div>
         <div class="tabs">
@@ -408,6 +396,24 @@
               <p>Message Electra to publish, run rewards, prep a PR wire, invite contributors, promote events, or get a daily growth report.</p>
               <div class="chips">
                 <span class="chip">Publish</span><span class="chip">Rewards</span><span class="chip">PR wire</span><span class="chip">Contributors</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="side-label">Contributors</div>
+            <div class="side-card contributors-card">
+              <div class="masthead-title">
+                <h2>Station contributors</h2>
+                <span>6 contributors</span>
+              </div>
+              <div class="masthead">
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=research-analyst" alt=""></div><div><b>Research analyst</b><span>writer</span></div></div>
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=video-host" alt=""></div><div><b>Video host</b><span>host</span></div></div>
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=crypto-editor" alt=""></div><div><b>Crypto editor</b><span>editor</span></div></div>
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=event-moderator" alt=""></div><div><b>Event moderator</b><span>moderator</span></div></div>
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=pr-producer" alt=""></div><div><b>PR producer</b><span>wire support</span></div></div>
+                <div class="person"><div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=community-lead" alt=""></div><div><b>Community lead</b><span>referrals</span></div></div>
               </div>
             </div>
           </div>
