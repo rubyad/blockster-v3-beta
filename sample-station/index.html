@@ -34,9 +34,9 @@
   .notice{max-width:1180px;margin:12px auto 0;padding:0 20px}
   .notice-inner{border:1px solid rgba(202,252,0,.26);background:rgba(202,252,0,.07);border-radius:13px;padding:10px 14px;color:var(--muted);font-size:12px;line-height:1.45}
   .notice-inner b{color:var(--volt)}
-  .sample-flag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.35);background:rgba(202,252,0,.09);color:var(--volt);border-radius:999px;padding:8px 11px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+  .sample-flag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.35);background:rgba(202,252,0,.09);color:var(--volt);border-radius:999px;padding:6px 9px;font-family:var(--mono);font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-left:10px;vertical-align:middle}
   .hero{position:relative;overflow:hidden;background:#0E0E0E;border-bottom:1px solid var(--line)}
-  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 15% -5%, rgba(123,25,255,.24), transparent 65%);pointer-events:none}
+  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 28%, rgba(123,25,255,.18), transparent 66%);pointer-events:none}
   .hero:after{content:"";position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
   .back{display:none}
   .hero-main{position:relative;padding:8px 0 30px}
@@ -122,7 +122,8 @@
   .article-body{padding:14px 14px 14px 0}
   .article-body h3{font-family:var(--disp);font-size:18px;line-height:1.15;letter-spacing:-.018em;margin-bottom:7px}
   .article-body p{color:var(--muted);font-size:12px;line-height:1.45}
-  .sidebar{display:grid;gap:24px;align-self:start;position:sticky;top:20px}
+  .sidebar{display:grid;gap:24px;align-self:start}
+  .side-sticky-group{display:grid;gap:24px;position:sticky;top:20px}
   .side-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
   .side-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;padding:20px}
   .wallet{border-color:rgba(202,252,0,.26);background:rgba(202,252,0,.05)}
@@ -163,7 +164,8 @@
     .actions{justify-content:flex-start;margin-top:18px}
     .subscriber-count{text-align:left}
     .masthead{grid-template-columns:repeat(2,1fr)}
-    .sidebar{position:static;margin-top:24px}
+    .sidebar{margin-top:24px}
+    .side-sticky-group{position:static}
   }
   @media(max-width:620px){
     .top-nav{height:auto;min-height:58px;padding:14px 0;align-items:flex-start}
@@ -198,11 +200,10 @@
       <div class="hero-main">
         <div class="hero-row">
           <div>
-            <div class="sample-flag"><span class="dot"></span>Sample page</div>
             <div class="identity">
               <div class="logo"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1765807041-9b4edc4ef76f1208.jpg" alt="MoonPay sample logo"></div>
               <div>
-                <div class="eyebrow">Payments · Onboarding · Web3 access</div>
+                <div class="eyebrow">Payments · Onboarding · Web3 access <span class="sample-flag"><span class="dot"></span>Sample page</span></div>
                 <h1>MoonPay Station</h1>
               </div>
             </div>
@@ -417,52 +418,54 @@
             </div>
           </div>
 
-          <div>
-            <div class="side-label">Rewards</div>
-            <div class="side-card rewards-card">
-              <div class="rewards-top">
-                <div class="reward-metric"><strong>$5,000</strong><span>Current prize draw</span></div>
-              </div>
-              <div class="funding-note">Funded from sample rewards wallet</div>
-              <p>One draw runs at a time. Users earn BUX for actions, then use BUX to enter the active prize draw.</p>
-              <div class="draw-stats">
-                <div class="draw-stat"><b>1,842</b><span>Entries</span></div>
-                <div class="draw-stat"><b>92K</b><span>BUX Burned</span></div>
-                <div class="draw-stat"><b>500</b><span>Min Entry</span></div>
-              </div>
-              <div class="earn-list">
-                <div class="earn-line"><span>Read an update</span><b>+75</b></div>
-                <div class="earn-line"><span>Follow this Station</span><b>+200</b></div>
-                <div class="earn-line"><span>Share an update</span><b>+150</b></div>
-                <div class="earn-line"><span>RSVP to an event</span><b>+500</b></div>
-                <div class="earn-line"><span>Refer a member</span><b>+1,000</b></div>
+          <div class="side-sticky-group">
+            <div>
+              <div class="side-label">Rewards</div>
+              <div class="side-card rewards-card">
+                <div class="rewards-top">
+                  <div class="reward-metric"><strong>$5,000</strong><span>Current prize draw</span></div>
+                </div>
+                <div class="funding-note">Funded from sample rewards wallet</div>
+                <p>One draw runs at a time. Users earn BUX for actions, then use BUX to enter the active prize draw.</p>
+                <div class="draw-stats">
+                  <div class="draw-stat"><b>1,842</b><span>Entries</span></div>
+                  <div class="draw-stat"><b>92K</b><span>BUX Burned</span></div>
+                  <div class="draw-stat"><b>500</b><span>Min Entry</span></div>
+                </div>
+                <div class="earn-list">
+                  <div class="earn-line"><span>Read an update</span><b>+75</b></div>
+                  <div class="earn-line"><span>Follow this Station</span><b>+200</b></div>
+                  <div class="earn-line"><span>Share an update</span><b>+150</b></div>
+                  <div class="earn-line"><span>RSVP to an event</span><b>+500</b></div>
+                  <div class="earn-line"><span>Refer a member</span><b>+1,000</b></div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div>
-            <div class="side-label">Upcoming events</div>
-            <div class="side-card">
-              <div class="events-list">
-                <div class="event">
-                  <div class="date"><div><span>Jul</span><b>09</b></div></div>
-                  <div>
-                    <h3>YouTube webinar: onboarding the next million users</h3>
-                    <p>RSVP reward, email/SMS reminders, and post-event recap.</p>
+            <div>
+              <div class="side-label">Upcoming events</div>
+              <div class="side-card">
+                <div class="events-list">
+                  <div class="event">
+                    <div class="date"><div><span>Jul</span><b>09</b></div></div>
+                    <div>
+                      <h3>YouTube webinar: onboarding the next million users</h3>
+                      <p>RSVP reward, email/SMS reminders, and post-event recap.</p>
+                    </div>
                   </div>
-                </div>
-                <div class="event">
-                  <div class="date"><div><span>Jul</span><b>16</b></div></div>
-                  <div>
-                    <h3>X Space AMA: payments, wallets, and mainstream adoption</h3>
-                    <p>Creator-hosted live conversation with share rewards.</p>
+                  <div class="event">
+                    <div class="date"><div><span>Jul</span><b>16</b></div></div>
+                    <div>
+                      <h3>X Space AMA: payments, wallets, and mainstream adoption</h3>
+                      <p>Creator-hosted live conversation with share rewards.</p>
+                    </div>
                   </div>
-                </div>
-                <div class="event">
-                  <div class="date"><div><span>Aug</span><b>02</b></div></div>
-                  <div>
-                    <h3>IRL meetup: Web3 payments builders night</h3>
-                    <p>RSVP, check-in, referral tracking, and attendance rewards.</p>
+                  <div class="event">
+                    <div class="date"><div><span>Aug</span><b>02</b></div></div>
+                    <div>
+                      <h3>IRL meetup: Web3 payments builders night</h3>
+                      <p>RSVP, check-in, referral tracking, and attendance rewards.</p>
+                    </div>
                   </div>
                 </div>
               </div>
