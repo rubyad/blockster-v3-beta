@@ -31,15 +31,15 @@
   .nav-actions{display:flex;gap:10px;align-items:center}
   .nav-link{border:1px solid var(--line2);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:800}
   .nav-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
-  .notice{max-width:1180px;margin:18px auto 0;padding:0 20px}
+  .notice{max-width:1180px;margin:14px auto 0;padding:0 20px}
   .notice-inner{border:1px solid rgba(202,252,0,.26);background:rgba(202,252,0,.07);border-radius:13px;padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.5}
   .notice-inner b{color:var(--volt)}
   .sample-flag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.35);background:rgba(202,252,0,.09);color:var(--volt);border-radius:999px;padding:8px 11px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
   .hero{position:relative;overflow:hidden;background:#0E0E0E;border-bottom:1px solid var(--line)}
   .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 15% -5%, rgba(123,25,255,.24), transparent 65%);pointer-events:none}
   .hero:after{content:"";position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
-  .back{position:relative;display:inline-flex;align-items:center;gap:6px;margin-top:22px;color:var(--faint);font-size:12px;font-weight:700}
-  .hero-main{position:relative;padding:28px 0 36px}
+  .back{position:relative;display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--faint);font-size:12px;font-weight:700}
+  .hero-main{position:relative;padding:18px 0 30px}
   .hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
   .identity{display:flex;gap:16px;align-items:center}
   .logo{width:66px;height:66px;border-radius:14px;display:grid;place-items:center;background:var(--moon);border:1px solid var(--line2);overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.34)}
@@ -105,8 +105,15 @@
   .small-img img{width:100%;height:100%;object-fit:cover;display:block}
   .small-card .body{padding:16px}
   .small-card h3{font-family:var(--disp);font-size:19px;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
-  .article-list{display:grid;gap:12px}
+  .content-mosaic{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .article-row{display:grid;grid-template-columns:112px 1fr;gap:14px;border:1px solid var(--line);background:var(--card);border-radius:16px;overflow:hidden}
+  .article-row.wide{grid-column:1/-1;grid-template-columns:190px 1fr}
+  .article-row.stack{display:block}
+  .article-row.stack .article-body{padding:16px}
+  .article-row.spotlight{grid-column:1/-1;display:grid;grid-template-columns:1.1fr .9fr;border-color:rgba(123,25,255,.34);background:linear-gradient(135deg,rgba(123,25,255,.14),rgba(20,20,20,.96))}
+  .article-row.spotlight .article-thumb{min-height:220px}
+  .article-row.spotlight .article-body{padding:22px}
+  .article-row.spotlight h3{font-size:27px}
   .article-thumb{min-height:96px;background:#202020;overflow:hidden}
   .article-thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .article-body{padding:14px 14px 14px 0}
@@ -118,6 +125,11 @@
   .wallet{border-color:rgba(202,252,0,.26);background:rgba(202,252,0,.05)}
   .wallet strong{display:block;color:var(--volt);font-family:var(--mono);font-size:30px;line-height:1;margin-bottom:7px}
   .wallet span{display:block;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .rewards-card{border-color:rgba(202,252,0,.28);background:linear-gradient(135deg,rgba(202,252,0,.08),rgba(20,20,20,.96))}
+  .rewards-top{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  .reward-metric{border:1px solid var(--line);background:rgba(14,14,14,.45);border-radius:14px;padding:14px}
+  .reward-metric strong{display:block;color:var(--volt);font-family:var(--mono);font-size:25px;line-height:1;margin-bottom:6px}
+  .reward-metric span{display:block;color:var(--faint);font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
   .draw{border-color:rgba(126,215,255,.36);background:rgba(126,215,255,.05);position:relative}
   .draw-pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#061015;border-radius:999px;padding:7px 10px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
   .prize{font-family:var(--mono);font-size:42px;font-weight:900;color:var(--accent);line-height:1}
@@ -154,8 +166,8 @@
     .nav-actions{justify-content:flex-end;flex-wrap:wrap}
     .identity{align-items:flex-start;flex-direction:column}
     .actions{align-items:flex-start}
-    .small-grid,.masthead{grid-template-columns:1fr}
-    .article-row{grid-template-columns:1fr}
+    .small-grid,.masthead,.content-mosaic{grid-template-columns:1fr}
+    .article-row,.article-row.wide,.article-row.spotlight{grid-template-columns:1fr}
     .article-body{padding:14px}
     .image{height:190px}
   }
@@ -303,8 +315,8 @@
             </article>
           </div>
 
-          <div class="article-list">
-            <article class="article-row">
+          <div class="content-mosaic">
+            <article class="article-row wide">
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781013430-8efdb2dadeafe80b.jpeg" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>2 days ago</span><b>+8 BUX</b></div>
@@ -312,7 +324,7 @@
                 <p>Merchant adoption story with share and referral rewards available.</p>
               </div>
             </article>
-            <article class="article-row">
+            <article class="article-row stack">
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1780408395-ae32cfac0fcc2f3e.jpeg" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>3 days ago</span><b>+10 BUX</b></div>
@@ -320,7 +332,7 @@
                 <p>Research-backed explainer for tokenized finance subscribers.</p>
               </div>
             </article>
-            <article class="article-row">
+            <article class="article-row stack">
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779478683-a8d97b60694c509e.jpeg" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>4 days ago</span><b>+10 BUX</b></div>
@@ -328,12 +340,12 @@
                 <p>AI-native commerce story with email/SMS distribution enabled.</p>
               </div>
             </article>
-            <article class="article-row">
+            <article class="article-row spotlight">
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779373181-fa72492b89dec77c.png" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>5 days ago</span><b>+8 BUX</b></div>
                 <h3>MoonPay wants to be the infrastructure layer behind tokenized finance</h3>
-                <p>Research-backed explainer created by a Station contributor.</p>
+                <p>Research-backed explainer created by a Station contributor, designed as a larger editorial card for bigger strategy pieces.</p>
               </div>
             </article>
             <article class="article-row">
@@ -348,11 +360,11 @@
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1778511336-7f1f604ca640b4c7.png" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>1 week ago</span><b>+10 BUX</b></div>
-                <h3>MoonPay Acquires Dawn Labs, Launchs AI Trading Agent That Turns Ideas Into Live Strategies</h3>
+                <h3>MoonPay Acquires Dawn Labs, Launches AI Trading Agent That Turns Ideas Into Live Strategies</h3>
                 <p>AI trading agent announcement with contributor and PR wire support.</p>
               </div>
             </article>
-            <article class="article-row">
+            <article class="article-row wide">
               <div class="article-thumb"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1777903091-15eb8b26aa8b7637.jpeg" alt=""></div>
               <div class="article-body">
                 <div class="meta"><span>1 week ago</span><b>+10 BUX</b></div>
@@ -401,35 +413,24 @@
 
           <div>
             <div class="side-label">Rewards</div>
-            <div class="side-card wallet">
-              <strong>$1,000</strong>
-              <span>Sample rewards wallet balance</span>
-              <p>Station-funded balance used for prize draws, read/share incentives, event rewards, and referral campaigns.</p>
-            </div>
-          </div>
-
-          <div>
-            <div class="side-label">Active draw</div>
-            <div class="side-card draw">
-              <div class="draw-pill">Prize draw</div>
-              <div class="prize">$500</div>
-              <p>Sample rewards draw funded from the Station rewards wallet.</p>
+            <div class="side-card rewards-card">
+              <div class="rewards-top">
+                <div class="reward-metric"><strong>$1,000</strong><span>Wallet balance</span></div>
+                <div class="reward-metric"><strong>$500</strong><span>Active draw</span></div>
+              </div>
+              <p>One Station-funded rewards pool powers read rewards, share incentives, event rewards, referrals, and prize draws.</p>
               <div class="draw-stats">
                 <div class="draw-stat"><b>1,842</b><span>Entries</span></div>
                 <div class="draw-stat"><b>92K</b><span>BUX Burned</span></div>
                 <div class="draw-stat"><b>500</b><span>Min Entry</span></div>
               </div>
-            </div>
-          </div>
-
-          <div class="side-card">
-            <div class="side-label">Earn BUX</div>
-            <div class="earn-list">
-              <div class="earn-line"><span>Read an update</span><b>+75</b></div>
-              <div class="earn-line"><span>Follow this Station</span><b>+200</b></div>
-              <div class="earn-line"><span>Share an update</span><b>+150</b></div>
-              <div class="earn-line"><span>RSVP to an event</span><b>+500</b></div>
-              <div class="earn-line"><span>Refer a member</span><b>+1,000</b></div>
+              <div class="earn-list">
+                <div class="earn-line"><span>Read an update</span><b>+75</b></div>
+                <div class="earn-line"><span>Follow this Station</span><b>+200</b></div>
+                <div class="earn-line"><span>Share an update</span><b>+150</b></div>
+                <div class="earn-line"><span>RSVP to an event</span><b>+500</b></div>
+                <div class="earn-line"><span>Refer a member</span><b>+1,000</b></div>
+              </div>
             </div>
           </div>
 
