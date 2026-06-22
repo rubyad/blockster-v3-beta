@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sample Creator Page — Blockster</title>
-<meta name="description" content="A sample Blockster creator profile showing portfolio, stations, services, rates, and contributor fit." />
+<title>Sample Creator Profile - Blockster</title>
+<meta name="description" content="A sample Blockster creator profile modeled on the V3 contributor profile experience." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sample Creator Page — Blockster" />
+<meta property="og:title" content="Sample Creator Profile - Blockster" />
 <meta property="og:description" content="See how a creator profile can look inside the Blockster creator network." />
 <meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/creators/sample/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,141 +14,267 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0A08;--panel:#11100D;--panel2:#181510;--line:rgba(248,244,235,.10);--line2:rgba(248,244,235,.16);
-    --text:#F8F4EB;--muted:rgba(248,244,235,.62);--faint:rgba(248,244,235,.38);
-    --volt:#CAFC00;--violet:#7C3AED;--blue:#0EA5E9;--disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
+    --bg:#0B0A08;--ink850:#11100D;--ink800:#15130F;--ink700:#201C16;
+    --line:rgba(248,244,235,.10);--line2:rgba(248,244,235,.18);
+    --text:#F8F4EB;--mid:rgba(248,244,235,.68);--lo:rgba(248,244,235,.42);
+    --volt:#CAFC00;--brand:#7B3FF6;--green:#14E0A0;--blue:#2775CA;
+    --disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-font-smoothing:antialiased}
-  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);background-image:radial-gradient(80% 55% at 75% -10%,rgba(202,252,0,.09),transparent 62%),radial-gradient(70% 50% at 5% 10%,rgba(124,58,237,.14),transparent 58%)}
+  html{-webkit-font-smoothing:antialiased;background:var(--bg)}
+  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);background-image:radial-gradient(70% 48% at 83% -12%,rgba(123,63,246,.18),transparent 62%),radial-gradient(70% 42% at 8% 0,rgba(202,252,0,.07),transparent 60%)}
   a{color:inherit;text-decoration:none}
-  .shell{max-width:1180px;margin:0 auto;padding:0 24px 64px}
-  .nav{height:66px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
-  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.35)}
-  .nav-actions{display:flex;gap:10px;align-items:center}
-  .nav-link{border:1px solid var(--line2);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:800}
-  .nav-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
-  .notice{margin:18px 0;border:1px solid rgba(202,252,0,.26);background:rgba(202,252,0,.07);border-radius:13px;padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.5}
-  .notice b{color:var(--volt)}
-  .hero{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(17,16,13,.86)}
-  .cover{min-height:230px;background:linear-gradient(to top,rgba(11,10,8,.92),transparent 60%),url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80");background-size:cover;background-position:center;padding:28px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
-  .identity{display:flex;align-items:end;gap:18px}
-  .avatar{width:88px;height:88px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.24);background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.28)}
-  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:8px}
-  h1{font-family:var(--disp);font-size:clamp(40px,6vw,72px);line-height:.92;letter-spacing:-.04em}
-  .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 17px;font-size:13px;font-weight:800;white-space:nowrap}
-  .btn.primary{background:var(--volt);color:#080805}
-  .btn.ghost{border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.24);color:#fff}
-  .profile-body{display:grid;grid-template-columns:1.45fr .8fr;gap:18px;padding:18px}
-  .card{border:1px solid var(--line);background:rgba(16,14,11,.9);border-radius:18px;padding:20px}
-  .bio{color:var(--muted);font-size:15px;line-height:1.65}
-  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:999px;padding:7px 9px}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-  .stat{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(248,244,235,.03)}
-  .stat strong{display:block;font-family:var(--disp);font-size:26px;line-height:1}
-  .stat span{display:block;margin-top:6px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
-  h2{font-family:var(--disp);font-size:28px;letter-spacing:-.02em;margin-bottom:14px}
-  h3{font-family:var(--disp);letter-spacing:-.02em}
-  .section{padding-top:26px}
-  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .work{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(16,14,11,.9)}
-  .work img{width:100%;height:160px;object-fit:cover;display:block}
-  .work div{padding:16px}
-  .work .meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--volt);margin-bottom:8px}
-  .work p,.side p{color:var(--muted);font-size:13px;line-height:1.5;margin-top:7px}
-  .side{display:grid;gap:16px;align-content:start}
-  .line{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:11px 0;color:var(--muted);font-size:13px}
-  .line:last-child{border-bottom:0}
-  .line b{color:var(--text);font-family:var(--mono);font-size:12px}
-  .station{display:flex;align-items:center;gap:11px;margin-top:10px}
-  .station-logo{width:38px;height:38px;border-radius:12px;background:var(--violet);display:grid;place-items:center;font-family:var(--mono);font-weight:800}
-  .station b{display:block;font-size:13px}
-  .station span{display:block;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
-  .fine{color:var(--faint);font-size:11px;line-height:1.5;margin-top:14px}
-  footer{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  @media(max-width:860px){.profile-body,.work-grid{grid-template-columns:1fr}.cover{align-items:flex-start;flex-direction:column}.actions{justify-content:flex-start}.stats{grid-template-columns:1fr}.shell{padding-inline:16px}}
+  button{font:inherit}
+  .shell{max-width:1180px;margin:0 auto;padding:0 32px 92px}
+  .top{height:66px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.38)}
+  .nav{display:flex;gap:10px;align-items:center}
+  .pill-link{border:1px solid var(--line2);border-radius:999px;padding:8px 12px;color:var(--mid);font-size:12px;font-weight:800}
+  .pill-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
+  .back{display:inline-block;margin-top:22px;color:var(--lo);font-size:13px}
+  .notice{margin-top:14px;border:1px solid rgba(202,252,0,.25);background:rgba(202,252,0,.07);border-radius:12px;padding:12px 14px;color:var(--volt);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+  .identity{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:flex-start;padding:28px 0 32px}
+  .bar{position:absolute;left:0;top:28px;bottom:32px;width:4px;border-radius:4px;background:var(--brand)}
+  .avatar{margin-left:24px;width:104px;height:104px;border-radius:50%;background:url("https://i.pravatar.cc/240?img=12") center/cover;border:2px solid var(--line2);box-shadow:0 0 40px -10px var(--brand)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .chip{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);border-radius:999px;padding:5px 9px;color:var(--mid)}
+  .chip.lead{color:var(--volt);border-color:rgba(202,252,0,.42)}
+  h1{font-family:var(--disp);font-size:46px;font-weight:800;line-height:.98;letter-spacing:-.03em;color:var(--text)}
+  .tagline{margin-top:12px;max-width:62ch;color:var(--mid);font-size:16px;line-height:1.55}
+  .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;color:var(--lo);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .meta .earned{color:var(--volt)}
+  .actions{display:flex;flex-direction:column;gap:10px;min-width:210px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:800;border:1px solid transparent}
+  .btn.primary{background:var(--volt);color:#090906}
+  .btn.ghost{border-color:var(--line2);color:var(--mid);background:transparent}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(17,16,13,.72)}
+  .stat{padding:18px 22px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat strong{display:block;font-family:var(--disp);font-size:26px;line-height:1;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+  .stat.volt strong{color:var(--volt)}
+  .stat span{display:block;margin-top:5px;color:var(--lo);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  section{padding-top:38px}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:20px}
+  h2{font-family:var(--disp);font-size:21px;font-weight:700;letter-spacing:-.02em}
+  .note{color:var(--lo);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px;color:var(--lo);font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+  .legend b{color:var(--volt);font-weight:700}
+  .channel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .channel{border:1px solid var(--line);border-radius:12px;background:var(--ink850);padding:16px;display:flex;flex-direction:column;gap:7px}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .channel-name{font-family:var(--disp);font-size:15px;font-weight:700}
+  .status{display:flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:999px;padding:4px 7px;color:var(--lo);font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .status.synced{color:var(--volt);border-color:rgba(202,252,0,.35)}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--lo)}
+  .synced .dot{background:var(--volt);box-shadow:0 0 6px var(--volt)}
+  .handle{color:var(--mid);font-family:var(--mono);font-size:11px}
+  .reach{font-family:var(--disp);font-size:19px;font-weight:700}
+  .reach span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--lo);font-weight:400}
+  .station-grid,.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .station-card{display:grid;grid-template-columns:4px 44px 1fr auto;gap:15px;align-items:center;border:1px solid var(--line);border-radius:12px;background:var(--ink850);overflow:hidden;padding:14px 18px 14px 0}
+  .station-line{height:100%;min-height:48px;border-radius:0 3px 3px 0}
+  .logo{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-family:var(--disp);font-size:18px;font-weight:800;color:#fff}
+  .station-card h3,.event-title{font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+  .station-card p{margin-top:4px;color:var(--lo);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase}
+  .since{color:var(--lo);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .event-card{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;border:1px solid var(--line);border-radius:12px;background:var(--ink850);padding:14px 18px}
+  .event-card.past{opacity:.58}
+  .date{width:52px;height:52px;border-radius:11px;background:var(--ink700);display:grid;place-items:center;text-align:center;line-height:1}
+  .date b{display:block;font-family:var(--disp);font-size:20px}
+  .date span{display:block;margin-top:4px;color:var(--lo);font-family:var(--mono);font-size:9px;letter-spacing:.1em}
+  .event-meta{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:6px;color:var(--lo);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+  .role{color:var(--volt);border:1px solid rgba(202,252,0,.4);border-radius:999px;padding:3px 8px}
+  .small-cta{border:1px solid var(--line2);border-radius:999px;padding:7px 12px;color:var(--mid);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .small-cta.reward{border:0;background:var(--volt);color:#090906;font-family:var(--ui);font-size:11.5px;font-weight:800;letter-spacing:0;text-transform:none}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .work{border:1px solid var(--line);border-radius:16px;background:var(--ink850);overflow:hidden;display:flex;flex-direction:column;min-height:100%}
+  .work-media{position:relative;height:150px;background-size:cover;background-position:center}
+  .work-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,8,.05),rgba(11,10,8,.55))}
+  .topline{position:absolute;left:0;right:0;top:0;height:3px;z-index:1}
+  .format{position:absolute;left:12px;top:12px;z-index:2;border:1px solid var(--line);border-radius:999px;background:rgba(11,10,8,.72);padding:5px 9px;color:var(--text);font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}
+  .play{position:absolute;left:12px;bottom:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:var(--volt);display:grid;place-items:center}
+  .play:before{content:"";width:0;height:0;border-left:9px solid #090906;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px}
+  .work-body{padding:16px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .station-meta{display:flex;align-items:center;gap:8px;color:var(--mid);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .square{width:7px;height:7px;border-radius:2px}
+  .work h3{font-family:var(--disp);font-size:16.5px;font-weight:600;line-height:1.16;letter-spacing:-.01em}
+  .work-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:6px;color:var(--lo);font-family:var(--mono);font-size:10px}
+  .earn{color:var(--volt);font-weight:700}
+  .merch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .merch{border:1px solid var(--line);border-radius:16px;background:var(--ink850);overflow:hidden}
+  .merch-img{position:relative;height:160px;background-size:cover;background-position:center}
+  .tag{position:absolute;left:10px;top:10px;border:1px solid var(--line);border-radius:999px;background:rgba(11,10,8,.72);padding:4px 8px;color:var(--text);font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+  .merch-body{padding:14px 15px}
+  .merch h3{font-family:var(--disp);font-size:15px;font-weight:600}
+  .merch-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;font-family:var(--mono)}
+  .price{color:var(--volt);font-size:13px;font-weight:700}
+  .stock{color:var(--lo);font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+  .stock.out{color:#FF7A7A}
+  footer{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--lo);font-size:12px}
+  @media(max-width:980px){
+    .identity{grid-template-columns:auto 1fr}.actions{grid-column:2}.stats,.channel-grid{grid-template-columns:repeat(2,1fr)}.work-grid,.merch-grid{grid-template-columns:repeat(2,1fr)}.station-grid,.event-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:680px){
+    .shell{padding:0 16px 64px}.top{height:auto;padding:16px 0;align-items:flex-start}.nav{flex-wrap:wrap;justify-content:flex-end}
+    .identity{display:block;padding-top:22px}.bar{display:none}.avatar{margin:0 0 18px}.actions{margin-top:18px;min-width:0}.stats,.channel-grid,.work-grid,.merch-grid{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.station-card{grid-template-columns:4px 44px 1fr}.since{grid-column:3}.event-card{grid-template-columns:auto 1fr}.event-card .small-cta{grid-column:2;justify-self:flex-start}
+  }
 </style>
 </head>
 <body>
   <div class="shell">
-    <header class="nav">
+    <header class="top">
       <a class="brand" href="/blockster-v3-beta/creators/"><span class="mark"></span>BLOCKSTER</a>
-      <div class="nav-actions">
-        <a class="nav-link" href="/blockster-v3-beta/creators/">Creators</a>
-        <a class="nav-link primary" href="/blockster-v3-beta/creators/apply/">Apply</a>
-      </div>
+      <nav class="nav">
+        <a class="pill-link" href="/blockster-v3-beta/">Stations</a>
+        <a class="pill-link" href="/blockster-v3-beta/creators/">Creators</a>
+        <a class="pill-link primary" href="/blockster-v3-beta/creators/apply/">Apply</a>
+      </nav>
     </header>
 
-    <div class="notice"><b>Sample Creator Page.</b> Illustrative mockup only. Creator work, rates, stations, and availability are examples.</div>
+    <a class="back" href="/blockster-v3-beta/creators/">← Creators</a>
+    <div class="notice">Sample profile · an illustration of what a contributor profile looks like - not a real member.</div>
 
-    <main class="hero">
-      <section class="cover">
-        <div class="identity">
-          <div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=maya-chain" alt=""></div>
-          <div>
-            <div class="eyebrow">Research writer · video host · event moderator</div>
-            <h1>Maya Chain</h1>
+    <main>
+      <section class="identity" aria-label="Creator identity">
+        <span class="bar"></span>
+        <div class="avatar" aria-label="A. Bello avatar"></div>
+        <div>
+          <div class="chips">
+            <span class="chip lead">Editor</span>
+            <span class="chip lead">Podcaster</span>
+            <span class="chip">Host, The Onramp</span>
+          </div>
+          <h1>A. Bello</h1>
+          <p class="tagline">Managing editor at MoonPay and host of The Onramp. Covering the long road from crypto to mainstream payments, one onramp at a time.</p>
+          <div class="meta">
+            <span>◷ Lisbon, PT</span>
+            <span>On Blockster since 2024</span>
+            <span class="earned">$96k earned</span>
           </div>
         </div>
         <div class="actions">
-          <a class="btn ghost" href="/blockster-v3-beta/creators/">Back to creators</a>
-          <a class="btn primary" href="/blockster-v3-beta/creators/apply/">Apply as creator</a>
+          <a class="btn primary" href="/blockster-v3-beta/creators/apply/">Follow</a>
+          <a class="btn ghost" href="/blockster-v3-beta/">Invite to your station</a>
         </div>
       </section>
 
-      <section class="profile-body">
-        <div>
-          <div class="card">
-            <h2>Contributor profile</h2>
-            <p class="bio">Maya is a sample Blockster creator profile for a crypto-native researcher and host. Stations can review her portfolio, invite her to contribute stories, book her for event coverage, or contact her for launch content. Creators get hired and paid directly by Stations; Blockster serves as the network.</p>
-            <div class="chips"><span class="chip">Stablecoins</span><span class="chip">Payments</span><span class="chip">AI agents</span><span class="chip">Video explainers</span><span class="chip">AMAs</span></div>
-            <div class="stats">
-              <div class="stat"><strong>42</strong><span>Published pieces</span></div>
-              <div class="stat"><strong>8</strong><span>Station invites</span></div>
-              <div class="stat"><strong>91%</strong><span>On-time delivery</span></div>
-            </div>
-          </div>
+      <div class="stats" aria-label="Profile stats">
+        <div class="stat"><strong>1.4M</strong><span>Reach across channels</span></div>
+        <div class="stat"><strong>128</strong><span>Dispatches · 42 eps</span></div>
+        <div class="stat"><strong>3.2M</strong><span>Reads & listens</span></div>
+        <div class="stat volt"><strong>$96k</strong><span>Earned · paid by stations</span></div>
+      </div>
 
-          <div class="section">
-            <h2>Featured work</h2>
-            <div class="work-grid">
-              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1780408395-ae32cfac0fcc2f3e.jpeg" alt=""><div><div class="meta">Research story</div><h3>Tokenized funds and stablecoin rails</h3><p>Long-form explainer for a Station covering tokenized finance.</p></div></article>
-              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779478683-a8d97b60694c509e.jpeg" alt=""><div><div class="meta">Video script</div><h3>AI-native payments walkthrough</h3><p>Script, clips, and subscriber version for a product education campaign.</p></div></article>
-              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781098654-fa99f39685f4e3a9.jpeg" alt=""><div><div class="meta">Event coverage</div><h3>Live payments AMA recap</h3><p>Pre-event questions, live moderation, and post-event recap.</p></div></article>
-              <article class="work"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80" alt=""><div><div class="meta">Launch content</div><h3>Contributor-hosted launch series</h3><p>Three-part campaign for subscribers, social posts, and PR wire.</p></div></article>
-            </div>
-          </div>
+      <section>
+        <div class="sec-head">
+          <h2>Reach & distribution</h2>
+          <span class="note">External audiences · per channel</span>
         </div>
+        <div class="legend">
+          <span><b>⟳ Synced</b> - published work auto-posts here, reach flows back</span>
+          <span>● Linked - verified profile, no auto-post</span>
+        </div>
+        <div class="channel-grid">
+          <article class="channel"><div class="row"><span class="channel-name">X</span><span class="status synced"><span class="dot"></span>Synced</span></div><span class="handle">@abello</span><span class="reach">248k <span>followers</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">LinkedIn</span><span class="status synced"><span class="dot"></span>Synced</span></div><span class="handle">in/abello</span><span class="reach">54k <span>followers</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">YouTube</span><span class="status synced"><span class="dot"></span>Synced</span></div><span class="handle">@TheOnramp</span><span class="reach">32k <span>subs</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">TikTok</span><span class="status synced"><span class="dot"></span>Synced</span></div><span class="handle">@onramp</span><span class="reach">120k <span>followers</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">Spotify</span><span class="status synced"><span class="dot"></span>Synced</span></div><span class="handle">The Onramp</span><span class="reach">18k <span>listeners</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">Luma</span><span class="status"><span class="dot"></span>Linked</span></div><span class="handle">lu.ma/onramp</span><span class="reach">9 <span>events</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">Telegram</span><span class="status"><span class="dot"></span>Linked</span></div><span class="handle">t.me/onramp</span><span class="reach">22k <span>members</span></span></article>
+          <article class="channel"><div class="row"><span class="channel-name">Discord</span><span class="status"><span class="dot"></span>Linked</span></div><span class="handle">The Onramp</span><span class="reach">6.4k <span>members</span></span></article>
+        </div>
+      </section>
 
-        <aside class="side">
-          <div class="card">
-            <h2>Available for</h2>
-            <div class="line"><span>Research article</span><b>$750+</b></div>
-            <div class="line"><span>Video script / host</span><b>$1.2K+</b></div>
-            <div class="line"><span>X Space / webinar</span><b>$900+</b></div>
-            <div class="line"><span>Launch package</span><b>Custom</b></div>
-            <p class="fine">Sample pricing only. Stations and creators agree terms directly.</p>
-          </div>
-          <div class="card">
-            <h2>Station fit</h2>
-            <div class="station"><div class="station-logo">MP</div><div><b>MoonPay Station</b><span>Payments · onboarding</span></div></div>
-            <div class="station"><div class="station-logo">AI</div><div><b>AI Agents Weekly</b><span>AI commerce</span></div></div>
-            <div class="station"><div class="station-logo">RW</div><div><b>RWA Desk</b><span>Tokenized assets</span></div></div>
-          </div>
-          <div class="card">
-            <h2>How Stations hire</h2>
-            <p>Stations can invite creators to contribute. The creator accepts terms, delivers work, and gets paid directly by the Station in the agreed currency.</p>
-          </div>
-        </aside>
+      <section>
+        <div class="sec-head">
+          <h2>Stations</h2>
+          <span class="note">Brands A. Bello helps run</span>
+        </div>
+        <div class="station-grid">
+          <article class="station-card">
+            <span class="station-line" style="background:#7B3FF6"></span>
+            <span class="logo" style="background:#7B3FF6">M</span>
+            <div><h3>MoonPay</h3><p>Managing editor · Host, The Onramp</p></div>
+            <span class="since">Since 2024</span>
+          </article>
+          <article class="station-card">
+            <span class="station-line" style="background:#2775CA"></span>
+            <span class="logo" style="background:#2775CA">C</span>
+            <div><h3>Circle</h3><p>Contributing editor</p></div>
+            <span class="since">Since 2025</span>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <h2>Live & events</h2>
+          <span class="note">Catch A. Bello in person</span>
+        </div>
+        <div class="event-grid">
+          <article class="event-card">
+            <div class="date"><div><b>18</b><span>JUN</span></div></div>
+            <div><div class="event-title">Token2049 side-stage: the payments panel</div><div class="event-meta"><span class="role">Hosting</span><span>Singapore</span></div></div>
+            <span class="small-cta reward">RSVP +500</span>
+          </article>
+          <article class="event-card">
+            <div class="date"><div><b>27</b><span>JUN</span></div></div>
+            <div><div class="event-title">The Onramp live: road to mainstream checkout</div><div class="event-meta"><span class="role">Speaking</span><span>Virtual</span></div></div>
+            <span class="small-cta reward">RSVP +500</span>
+          </article>
+          <article class="event-card past">
+            <div class="date"><div><b>02</b><span>MAY</span></div></div>
+            <div><div class="event-title">Consensus 2026: stablecoins in the wild</div><div class="event-meta"><span>Austin · Past</span></div></div>
+            <span class="small-cta">Watch recap</span>
+          </article>
+          <article class="event-card past">
+            <div class="date"><div><b>14</b><span>APR</span></div></div>
+            <div><div class="event-title">MoonPay member meetup</div><div class="event-meta"><span>London · Past</span></div></div>
+            <span class="small-cta">Watch recap</span>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <h2>Showcase</h2>
+          <span class="note">Recent work · all formats</span>
+        </div>
+        <div class="work-grid">
+          <article class="work">
+            <div class="work-media" style="background-image:url('https://picsum.photos/seed/wk_stable/600/360')"><span class="topline" style="background:#7B3FF6"></span><span class="format">Dispatch</span></div>
+            <div class="work-body"><span class="station-meta"><span class="square" style="background:#7B3FF6"></span>MoonPay · 3h</span><h3>Why stablecoins quietly ate fintech</h3><div class="work-foot"><span>↗ 12.4k</span><span class="earn">Read +75</span></div></div>
+          </article>
+          <article class="work">
+            <div class="work-media" style="background-image:url('https://picsum.photos/seed/wk_pod/600/360')"><span class="topline" style="background:#7B3FF6"></span><span class="format">Podcast · EP 42</span><span class="play"></span></div>
+            <div class="work-body"><span class="station-meta"><span class="square" style="background:#7B3FF6"></span>The Onramp · 38 min</span><h3>The mainstream payments tipping point</h3><div class="work-foot"><span>↗ 8.1k</span><span class="earn">Listen +100</span></div></div>
+          </article>
+          <article class="work">
+            <div class="work-media" style="background-image:url('https://i.pravatar.cc/600?img=47')"><span class="topline" style="background:#14E0A0"></span><span class="format">● Interview · 24 min</span></div>
+            <div class="work-body"><span class="station-meta"><span class="square" style="background:#14E0A0"></span>io.net · 1d</span><h3>In conversation: Diana Park on onchain compute</h3><div class="work-foot"><span>↗ 15.6k</span><span class="earn">Watch +75</span></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head">
+          <h2>Drops & merch</h2>
+          <span class="note">Burn BUX · designed by this voice</span>
+        </div>
+        <div class="merch-grid">
+          <article class="merch"><div class="merch-img" style="background-image:url('https://picsum.photos/seed/merch_poster/400/320')"><span class="tag">Signed · 1/100</span></div><div class="merch-body"><h3>The Onramp launch poster</h3><div class="merch-row"><span class="price">12,000</span><span class="stock">42 left</span></div></div></article>
+          <article class="merch"><div class="merch-img" style="background-image:url('https://picsum.photos/seed/merch_tee/400/320')"></div><div class="merch-body"><h3>Genesis listener tee</h3><div class="merch-row"><span class="price">18,000</span><span class="stock out">Sold out</span></div></div></article>
+          <article class="merch"><div class="merch-img" style="background-image:url('https://picsum.photos/seed/merch_cap/400/320')"></div><div class="merch-body"><h3>Founders field cap</h3><div class="merch-row"><span class="price">9,000</span><span class="stock">17 left</span></div></div></article>
+          <article class="merch"><div class="merch-img" style="background-image:url('https://picsum.photos/seed/merch_nft/400/320')"><span class="tag">Edition</span></div><div class="merch-body"><h3>EP. 1 cover · digital</h3><div class="merch-row"><span class="price">5,000</span><span class="stock">Open</span></div></div></article>
+        </div>
       </section>
     </main>
 
     <footer>
-      <span>Blockster · Sample Creator Page</span>
+      <span>Blockster · Sample Creator Profile</span>
       <span><a href="/blockster-v3-beta/creators/">Creators</a> · <a href="/blockster-v3-beta/creators/apply/">Apply</a></span>
     </footer>
   </div>
