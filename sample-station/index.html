@@ -3,269 +3,381 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sample V3 Station — Blockster</title>
-<meta name="description" content="Illustrative sample Blockster V3 Station showing publishing, subscribers, email/SMS distribution, BUX rewards, and analytics." />
+<title>Sample V3 Station - Blockster</title>
+<meta name="description" content="Illustrative sample Blockster V3 Station showing the actual Station layout with publishing, embeds, rewards, events, contributors, subscribers, and analytics." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sample V3 Station — Blockster" />
-<meta property="og:description" content="See how a Blockster V3 Station could publish content, grow subscribers, distribute updates, and reward readers." />
+<meta property="og:title" content="Sample V3 Station - Blockster" />
+<meta property="og:description" content="A sample V3 Station preview. Illustrative mockup only." />
 <meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/sample-station/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0A08;--panel:#11100D;--panel2:#181510;--line:rgba(248,244,235,.11);
-    --text:#F8F4EB;--muted:rgba(248,244,235,.62);--faint:rgba(248,244,235,.38);
-    --volt:#CAFC00;--blue:#0EA5E9;--violet:#7C3AED;--orange:#F59E0B;
+    --bg:#0E0E0E;--card:#141414;--muted-card:#181818;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+    --text:#F8F4EB;--muted:rgba(248,244,235,.58);--faint:rgba(248,244,235,.34);
+    --accent:#7ED7FF;--volt:#CAFC00;--violet:#7C3AED;--orange:#F59E0B;
     --disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);
-    background-image:radial-gradient(80% 48% at 20% -10%, rgba(14,165,233,.16), transparent 58%),radial-gradient(70% 55% at 85% 2%, rgba(202,252,0,.10), transparent 55%)}
+  html{-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui)}
   a{color:inherit;text-decoration:none}
-  .shell{max-width:1180px;margin:0 auto;padding:0 24px 72px}
-  .nav{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .accent-bar{height:3px;background:var(--accent)}
+  .shell{max-width:1180px;margin:0 auto;padding:0 20px}
+  .top-nav{height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
-  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.35)}
+  .mark{width:20px;height:20px;border-radius:5px;background:var(--volt)}
   .nav-actions{display:flex;gap:10px;align-items:center}
-  .nav-link{border:1px solid rgba(248,244,235,.16);border-radius:999px;padding:9px 13px;color:var(--muted);font-size:12px;font-weight:800}
+  .nav-link{border:1px solid var(--line2);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:800}
   .nav-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
-  .notice{margin:22px 0 0;border:1px solid rgba(202,252,0,.24);background:rgba(202,252,0,.07);border-radius:14px;padding:13px 15px;color:var(--muted);font-size:12px;line-height:1.5}
-  .notice b{color:var(--volt)}
-  .station{margin-top:22px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(17,16,13,.88);box-shadow:0 30px 100px rgba(0,0,0,.24)}
-  .cover{min-height:260px;background:linear-gradient(135deg,#111827 0%,#0EA5E9 42%,#7C3AED 100%);position:relative;padding:28px;display:flex;align-items:flex-end}
-  .cover:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 76% 20%, rgba(202,252,0,.24), transparent 54%),linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.42))}
-  .station-head{position:relative;z-index:1;display:flex;align-items:end;justify-content:space-between;gap:24px;width:100%}
+  .notice{max-width:1180px;margin:18px auto 0;padding:0 20px}
+  .notice-inner{border:1px solid rgba(202,252,0,.26);background:rgba(202,252,0,.07);border-radius:13px;padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.5}
+  .notice-inner b{color:var(--volt)}
+  .sample-flag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(202,252,0,.35);background:rgba(202,252,0,.09);color:var(--volt);border-radius:999px;padding:8px 11px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+  .hero{position:relative;overflow:hidden;background:#0E0E0E;border-bottom:1px solid var(--line)}
+  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 15% -5%, rgba(126,215,255,.16), transparent 65%);pointer-events:none}
+  .hero:after{content:"";position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+  .back{position:relative;display:inline-flex;align-items:center;gap:6px;margin-top:22px;color:var(--faint);font-size:12px;font-weight:700}
+  .hero-main{position:relative;padding:28px 0 36px}
+  .hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
   .identity{display:flex;gap:16px;align-items:center}
-  .logo{width:76px;height:76px;border-radius:18px;background:#fff;color:#121212;display:grid;place-items:center;font-family:var(--disp);font-size:31px;font-weight:800;letter-spacing:-.06em;box-shadow:0 16px 40px rgba(0,0,0,.28)}
-  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
-  h1{font-family:var(--disp);font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-.045em}
-  .sub{max-width:660px;color:var(--muted);font-size:16px;line-height:1.55;margin-top:12px}
-  .pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 12px;background:rgba(0,0,0,.24);font-size:11px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:rgba(11,10,8,.74)}
-  .stat{padding:18px;border-right:1px solid var(--line)}
-  .stat:last-child{border-right:0}
-  .stat strong{display:block;font-family:var(--disp);font-size:30px;line-height:1;letter-spacing:-.03em}
-  .stat span{display:block;margin-top:7px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
-  .content{display:grid;grid-template-columns:1.5fr .9fr;gap:18px;padding:18px;background:rgba(11,10,8,.34)}
-  .operator-band{padding:18px 18px 0;background:rgba(11,10,8,.34)}
-  .top-band{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:18px 18px 0;background:rgba(11,10,8,.34)}
-  .card{border:1px solid var(--line);background:rgba(17,16,13,.9);border-radius:18px;padding:20px}
-  .card h2,.card h3{font-family:var(--disp);font-weight:800;letter-spacing:-.025em}
-  .card h2{font-size:28px}
-  .card h3{font-size:20px;margin-bottom:7px}
-  .card p{color:var(--muted);font-size:13px;line-height:1.55}
-  .kicker{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:10px}
-  .story-list{display:grid;gap:12px;margin-top:16px}
-  .story{display:grid;grid-template-columns:96px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(248,244,235,.03)}
-  .thumb{border-radius:11px;min-height:72px;background:linear-gradient(135deg,rgba(14,165,233,.9),rgba(124,58,237,.88));display:grid;place-items:center;font-family:var(--mono);font-size:10px;color:white;text-transform:uppercase;letter-spacing:.12em}
-  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .tag{font-family:var(--mono);font-size:10px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:5px 8px}
-  .contributors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-  .person{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
-  .avatar{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--volt),var(--blue));display:grid;place-items:center;color:#080805;font-weight:900;font-size:12px;margin-bottom:10px}
+  .logo{width:66px;height:66px;border-radius:14px;display:grid;place-items:center;background:#fff;color:#121212;border:1px solid var(--line2);font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-.06em;box-shadow:0 16px 40px rgba(0,0,0,.34)}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  h1{font-family:var(--disp);font-size:clamp(34px,5vw,54px);line-height:1;letter-spacing:-.035em}
+  .desc{max-width:720px;margin-top:22px;color:rgba(248,244,235,.46);font-size:15px;line-height:1.65;font-weight:400}
+  .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+  .subscriber-count{text-align:right}
+  .subscriber-count strong{display:block;font-family:var(--mono);font-size:20px;line-height:1}
+  .subscriber-count span{display:block;margin-top:4px;color:var(--faint);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .button{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:999px;padding:10px 15px;font-size:13px;font-weight:800;white-space:nowrap}
+  .button.white{background:#fff;color:#0A0A0A}
+  .button.accent{background:var(--accent);color:#061015}
+  .button.dark{border:1px solid var(--line2);background:rgba(255,255,255,.07);color:var(--muted)}
+  .socials{display:flex;gap:8px;align-items:center}
+  .social{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:11px;font-weight:800;color:rgba(255,255,255,.72)}
+  .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 11px;color:rgba(255,255,255,.7);font-size:12px;font-weight:700}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  .stats{border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+  .stats-row{display:flex;overflow-x:auto}
+  .stat{flex:0 0 auto;padding:17px 34px 17px 0}
+  .stat strong{display:block;color:#fff;font-family:var(--mono);font-size:20px;line-height:1}
+  .stat span{display:block;margin-top:6px;color:var(--faint);font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .earn{border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+  .earn-row{display:flex;align-items:center;gap:26px;overflow-x:auto;padding:12px 0}
+  .earn-label{display:inline-flex;align-items:center;gap:8px;color:var(--volt);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+  .earn-item{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;white-space:nowrap}
+  .earn-item span{color:var(--faint);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  .earn-item b{color:var(--volt)}
+  .section{padding:34px 0 0}
+  .masthead-title{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
+  .masthead-title h2,.feed-title h2{font-family:var(--disp);font-size:22px;letter-spacing:-.02em}
+  .masthead-title span{color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .masthead{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .person{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px}
+  .avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#061015;font-weight:900;font-size:12px}
   .person b{display:block;font-size:13px}
-  .person span{display:block;margin-top:5px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
-  .event-row{display:grid;gap:10px;margin-top:14px}
-  .event{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
-  .event b{display:block;font-size:14px;margin-bottom:5px}
-  .ops{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
-  .op{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
-  .op b{display:block;color:var(--volt);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
-  .channels{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
-  .channel{font-family:var(--mono);font-size:10px;color:var(--text);border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:999px;padding:7px 9px}
-  .reward{background:radial-gradient(90% 90% at 50% 0%, rgba(202,252,0,.13), rgba(17,16,13,.92) 58%);border-color:rgba(202,252,0,.24)}
-  .reward .prize{font-family:var(--disp);font-size:46px;line-height:1;color:var(--volt);letter-spacing:-.04em;margin:8px 0 6px}
-  .actions{display:grid;gap:9px;margin-top:15px}
-  .action{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--muted);font-size:12px}
-  .action b{color:var(--volt);font-family:var(--mono);font-size:11px}
-  .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
-  .mini{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(248,244,235,.03)}
-  .mini strong{display:block;font-family:var(--disp);font-size:24px;line-height:1;color:var(--text)}
-  .mini span{display:block;margin-top:6px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
-  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-  .flow div{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(17,16,13,.8)}
-  .flow b{display:block;color:var(--volt);font-family:var(--mono);font-size:11px;margin-bottom:7px}
-  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 22px;font-weight:800;font-size:14px}
-  .btn-primary{background:var(--volt);color:#080805}
-  .btn-ghost{border:1px solid rgba(248,244,235,.16);color:var(--muted)}
-  footer{border-top:1px solid var(--line);margin-top:42px;padding-top:24px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  @media(max-width:920px){
-    .station-head,.content,.top-band{grid-template-columns:1fr;display:block}
-    .pill{margin-top:18px}
-    .stats,.flow,.contributors,.ops{grid-template-columns:repeat(2,1fr)}
-    .stat:nth-child(2){border-right:0}
-    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
-    .content,.top-band{display:grid}
+  .person span{display:block;margin-top:3px;color:var(--faint);font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase}
+  .feed-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .tabs{display:flex;gap:8px;overflow-x:auto}
+  .tab{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:9px 15px;color:var(--muted);font-size:13px;font-weight:800;white-space:nowrap}
+  .tab.active{background:#fff;color:#0A0A0A;border-color:#fff}
+  .layout{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start}
+  .main-feed{display:grid;gap:18px}
+  .feature{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden}
+  .image{height:250px;background:linear-gradient(135deg,rgba(126,215,255,.7),rgba(124,58,237,.9));position:relative}
+  .image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,14,.86),transparent 60%)}
+  .reward-badge{position:absolute;top:14px;right:14px;z-index:1;border:1px solid var(--line);background:rgba(14,14,14,.8);border-radius:999px;padding:8px 11px;color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:800}
+  .feature-body{padding:22px}
+  .meta{display:flex;align-items:center;gap:8px;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .meta b{color:var(--accent)}
+  .feature h3{font-family:var(--disp);font-size:30px;line-height:1.08;letter-spacing:-.025em;margin-bottom:10px}
+  .feature p,.small-card p,.side-card p{color:var(--muted);font-size:13px;line-height:1.55}
+  .small-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .small-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden}
+  .small-img{height:118px;background:linear-gradient(135deg,rgba(202,252,0,.55),rgba(14,165,233,.7))}
+  .small-card .body{padding:16px}
+  .small-card h3{font-family:var(--disp);font-size:19px;line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+  .sidebar{display:grid;gap:24px;position:sticky;top:20px}
+  .side-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+  .side-card{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;padding:20px}
+  .wallet{border-color:rgba(202,252,0,.26);background:rgba(202,252,0,.05)}
+  .wallet strong{display:block;color:var(--volt);font-family:var(--mono);font-size:30px;line-height:1;margin-bottom:7px}
+  .wallet span{display:block;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .draw{border-color:rgba(126,215,255,.36);background:rgba(126,215,255,.05);position:relative}
+  .draw-pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#061015;border-radius:999px;padding:7px 10px;font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  .prize{font-family:var(--mono);font-size:42px;font-weight:900;color:var(--accent);line-height:1}
+  .draw-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+  .draw-stat{border:1px solid var(--line);background:rgba(14,14,14,.5);border-radius:12px;padding:10px}
+  .draw-stat b{display:block;color:var(--accent);font-family:var(--mono);font-size:14px}
+  .draw-stat span{display:block;margin-top:4px;color:var(--faint);font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .earn-list{display:grid;gap:11px}
+  .earn-line{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px}
+  .earn-line b{color:var(--accent);font-family:var(--mono);font-size:12px}
+  .events-list{display:grid;gap:14px}
+  .event{display:flex;gap:13px}
+  .date{width:54px;height:54px;border:1px solid rgba(126,215,255,.34);background:rgba(126,215,255,.08);border-radius:12px;display:grid;place-items:center;flex:none;color:var(--accent)}
+  .date span{display:block;text-align:center;font-family:var(--mono);font-size:10px;font-weight:900;text-transform:uppercase}
+  .date b{display:block;text-align:center;font-size:19px;line-height:.9}
+  .event h3{font-size:15px;line-height:1.25;margin-bottom:7px}
+  .module{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:18px}
+  .module h3{font-family:var(--disp);font-size:21px;letter-spacing:-.02em;margin-bottom:8px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{border:1px solid rgba(126,215,255,.32);background:rgba(126,215,255,.08);border-radius:999px;padding:7px 9px;color:var(--text);font-family:var(--mono);font-size:10px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:38px 0 52px}
+  footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media(max-width:940px){
+    .hero-row,.layout{grid-template-columns:1fr;display:block}
+    .actions{justify-content:flex-start;margin-top:18px}
+    .subscriber-count{text-align:left}
+    .masthead{grid-template-columns:repeat(2,1fr)}
+    .sidebar{position:static;margin-top:24px}
   }
   @media(max-width:620px){
-    .shell{padding-inline:16px}
-    .nav{height:auto;min-height:68px;padding:14px 0;align-items:flex-start}
-    .nav-actions{flex-wrap:wrap;justify-content:flex-end}
-    .cover{padding:22px;min-height:330px}
+    .top-nav{height:auto;min-height:58px;padding:14px 0;align-items:flex-start}
+    .nav-actions{justify-content:flex-end;flex-wrap:wrap}
     .identity{align-items:flex-start;flex-direction:column}
-    .stats,.flow,.mini-grid,.contributors,.ops{grid-template-columns:1fr}
-    .stat{border-right:0;border-bottom:1px solid var(--line)}
-    .stat:last-child{border-bottom:0}
-    .story{grid-template-columns:1fr}
+    .actions{align-items:flex-start}
+    .small-grid,.masthead{grid-template-columns:1fr}
+    .image{height:190px}
   }
 </style>
 </head>
 <body>
+  <div class="accent-bar"></div>
   <div class="shell">
-    <header class="nav">
+    <header class="top-nav">
       <a class="brand" href="/blockster-v3-beta/stations/"><span class="mark"></span>BLOCKSTER</a>
       <div class="nav-actions">
         <a class="nav-link" href="/blockster-v3-beta/stations/">For stations</a>
         <a class="nav-link primary" href="/blockster-v3-beta/">Apply</a>
       </div>
     </header>
+  </div>
 
-    <div class="notice"><b>Sample V3 Station: MoonPay.</b> Illustrative mockup only. This is not a live Station, customer announcement, or paid partnership.</div>
+  <div class="notice">
+    <div class="notice-inner"><b>Sample Page: MoonPay V3 Station.</b> Illustrative mockup only. This is not a live Station, customer announcement, or paid partnership.</div>
+  </div>
 
-    <main class="station">
-      <section class="cover">
-        <div class="station-head">
+  <section class="hero">
+    <div class="shell">
+      <a class="back" href="/blockster-v3-beta/stations/">← Publications</a>
+      <div class="hero-main">
+        <div class="hero-row">
           <div>
+            <div class="sample-flag"><span class="dot"></span>Sample page</div>
             <div class="identity">
               <div class="logo">MP</div>
               <div>
-                <div class="eyebrow">Payments · onboarding · Web3 access</div>
+                <div class="eyebrow">Payments · Onboarding · Web3 access</div>
                 <h1>MoonPay Station</h1>
-                <p class="sub">A sample branded Station where Electra can publish, run rewards, prep PR wires, invite contributors, promote events, and send email/SMS updates from Telegram or the web app.</p>
+              </div>
+            </div>
+            <p class="desc">A sample V3 Station showing the actual Station experience: articles, embedded social content, events, reward campaigns, contributors, subscriber growth, and Electra running the operation from Telegram or the web app.</p>
+            <div class="pills">
+              <span class="pill"><span class="dot"></span>Reward Pool Active</span>
+              <span class="pill">Rewards Balance $1,000</span>
+              <span class="pill">Event This Week</span>
+              <span class="pill">Updated 2h ago</span>
+              <span class="pill">Electra Online</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="subscriber-count"><strong>12,842</strong><span>subscribers</span></div>
+            <span class="button white">+ Follow</span>
+            <span class="button accent">Contribute</span>
+            <div class="socials">
+              <span class="social">WEB</span>
+              <span class="social">X</span>
+              <span class="social">TG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="shell">
+      <div class="stats-row">
+        <div class="stat"><strong>12.8K</strong><span>Subscribers</span></div>
+        <div class="stat"><strong>52</strong><span>Articles</span></div>
+        <div class="stat"><strong>6</strong><span>Events</span></div>
+        <div class="stat"><strong>$1K</strong><span>Rewards Balance</span></div>
+        <div class="stat"><strong>420K</strong><span>BUX Distributed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="earn">
+    <div class="shell">
+      <div class="earn-row">
+        <span class="earn-label"><span class="dot"></span>Earn here</span>
+        <span class="earn-item"><span>Read</span><b>+75</b></span>
+        <span class="earn-item"><span>High value read</span><b>+100</b></span>
+        <span class="earn-item"><span>Share</span><b>+150</b></span>
+        <span class="earn-item"><span>Comment</span><b>+50</b></span>
+        <span class="earn-item"><span>RSVP</span><b>+500</b></span>
+        <span class="earn-item"><span>Subscribe</span><b>+5,000</b></span>
+      </div>
+    </div>
+  </section>
+
+  <main class="shell">
+    <section class="section">
+      <div class="masthead-title">
+        <h2>The masthead</h2>
+        <span>6 contributors</span>
+      </div>
+      <div class="masthead">
+        <div class="person"><div class="avatar">AR</div><div><b>Research analyst</b><span>writer</span></div></div>
+        <div class="person"><div class="avatar">VH</div><div><b>Video host</b><span>host</span></div></div>
+        <div class="person"><div class="avatar">CE</div><div><b>Crypto editor</b><span>editor</span></div></div>
+        <div class="person"><div class="avatar">EM</div><div><b>Event moderator</b><span>moderator</span></div></div>
+        <div class="person"><div class="avatar">PR</div><div><b>PR producer</b><span>wire support</span></div></div>
+        <div class="person"><div class="avatar">CT</div><div><b>Community lead</b><span>referrals</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="feed-head">
+        <div class="feed-title"><h2>Feed</h2></div>
+        <div class="tabs">
+          <span class="tab active">All</span>
+          <span class="tab">Articles</span>
+          <span class="tab">Rewards</span>
+          <span class="tab">Events</span>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="main-feed">
+          <article class="feature">
+            <div class="image"><span class="reward-badge">+75 BUX</span></div>
+            <div class="feature-body">
+              <div class="meta"><b>Latest</b><span>2h ago</span></div>
+              <h3>Every Channel, One Station</h3>
+              <p>Sample product education story with embedded video, subscriber notification, and share rewards enabled.</p>
+            </div>
+          </article>
+
+          <div class="small-grid">
+            <article class="small-card">
+              <div class="small-img"></div>
+              <div class="body">
+                <div class="meta"><span>4h ago</span><b>+10 BUX</b></div>
+                <h3>MoonPay becomes first crypto onramp integrated into ChatGPT apps</h3>
+                <p>Short tutorial designed for search, subscribers, and social sharing.</p>
+              </div>
+            </article>
+            <article class="small-card">
+              <div class="small-img"></div>
+              <div class="body">
+                <div class="meta"><span>Yesterday</span><b>+8 BUX</b></div>
+                <h3>MoonPay wants to be the infrastructure layer behind tokenized finance</h3>
+                <p>Research-backed explainer created by a Station contributor.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="module">
+            <h3>Embedded channels</h3>
+            <p>A Station can embed posts and media from eight networks, then distribute the best updates to subscribers by email/SMS.</p>
+            <div class="chips">
+              <span class="chip">X</span><span class="chip">YouTube</span><span class="chip">TikTok</span><span class="chip">Instagram</span><span class="chip">Reddit</span><span class="chip">Twitch</span><span class="chip">Spotify</span><span class="chip">Apple Podcasts</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div>
+            <div class="side-label">Electra command center</div>
+            <div class="side-card">
+              <h3>Run the Station from Telegram</h3>
+              <p>Message Electra to publish, run rewards, prep a PR wire, invite contributors, promote events, or get a daily growth report.</p>
+              <div class="chips">
+                <span class="chip">Publish</span><span class="chip">Rewards</span><span class="chip">PR wire</span><span class="chip">Contributors</span>
               </div>
             </div>
           </div>
-          <span class="pill">Sample V3 Station</span>
-        </div>
-      </section>
 
-      <div class="stats">
-        <div class="stat"><strong>12.8k</strong><span>Subscribers</span></div>
-        <div class="stat"><strong>4.2k</strong><span>Reads this week</span></div>
-        <div class="stat"><strong>816</strong><span>Social shares</span></div>
-        <div class="stat"><strong>291</strong><span>New referrals</span></div>
-      </div>
-
-      <div class="operator-band">
-        <section class="card">
-          <span class="kicker">Electra command center</span>
-          <h2>Run the Station from Telegram.</h2>
-          <p>Send Electra a message to publish a story, launch a rewards draw, prep a PR wire, invite contributors, promote an event, or get the daily growth report.</p>
-          <div class="ops">
-            <div class="op"><b>Publish</b><p>Draft and post stories, videos, tutorials, and announcements.</p></div>
-            <div class="op"><b>Rewards</b><p>Turn on read, share, RSVP, and referral rewards.</p></div>
-            <div class="op"><b>PR wire</b><p>Package approved content for wire distribution.</p></div>
-            <div class="op"><b>Contributors</b><p>Invite writers, hosts, researchers, and creators.</p></div>
+          <div>
+            <div class="side-label">Rewards</div>
+            <div class="side-card wallet">
+              <strong>$1,000</strong>
+              <span>Sample rewards wallet balance</span>
+              <p>Station-funded balance used for prize draws, read/share incentives, event rewards, and referral campaigns.</p>
+            </div>
           </div>
-        </section>
-      </div>
 
-      <div class="top-band">
-        <section class="card">
-          <span class="kicker">Contributor network</span>
-          <h2>Bring in writers, hosts, researchers, and video creators.</h2>
-          <p>Stations can invite approved creators to produce stories, tutorials, interviews, research, event coverage, and videos. Contributors are hired and paid directly by the Station.</p>
-          <div class="contributors">
-            <div class="person"><div class="avatar">AR</div><b>Research analyst</b><span>Market explainers · reports</span></div>
-            <div class="person"><div class="avatar">VH</div><b>Video host</b><span>Interviews · tutorials</span></div>
-            <div class="person"><div class="avatar">CE</div><b>Crypto editor</b><span>Product stories · launches</span></div>
+          <div>
+            <div class="side-label">Active draw</div>
+            <div class="side-card draw">
+              <div class="draw-pill">Prize draw</div>
+              <div class="prize">$500</div>
+              <p>Sample rewards draw funded from the Station rewards wallet.</p>
+              <div class="draw-stats">
+                <div class="draw-stat"><b>1,842</b><span>Entries</span></div>
+                <div class="draw-stat"><b>92K</b><span>BUX Burned</span></div>
+                <div class="draw-stat"><b>500</b><span>Min Entry</span></div>
+              </div>
+            </div>
           </div>
-        </section>
-        <aside class="card">
-          <span class="kicker">Upcoming events</span>
-          <h2>Events grow the Station too.</h2>
-          <div class="event-row">
-            <div class="event"><b>YouTube webinar</b><p>Onboarding the next million users. RSVP +100 BUX, reminders by email/SMS.</p></div>
-            <div class="event"><b>X Space AMA</b><p>Product Q&A with contributor-hosted clips and post-event recap.</p></div>
+
+          <div class="side-card">
+            <div class="side-label">Earn BUX</div>
+            <div class="earn-list">
+              <div class="earn-line"><span>Read an update</span><b>+75</b></div>
+              <div class="earn-line"><span>Follow this Station</span><b>+200</b></div>
+              <div class="earn-line"><span>Share an update</span><b>+150</b></div>
+              <div class="earn-line"><span>RSVP to an event</span><b>+500</b></div>
+              <div class="earn-line"><span>Refer a member</span><b>+1,000</b></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="side-label">Upcoming events</div>
+            <div class="side-card">
+              <div class="events-list">
+                <div class="event">
+                  <div class="date"><div><span>Jul</span><b>09</b></div></div>
+                  <div>
+                    <h3>YouTube webinar: onboarding the next million users</h3>
+                    <p>RSVP reward, email/SMS reminders, and post-event recap.</p>
+                  </div>
+                </div>
+                <div class="event">
+                  <div class="date"><div><span>Jul</span><b>16</b></div></div>
+                  <div>
+                    <h3>X Space AMA: payments, wallets, and mainstream adoption</h3>
+                    <p>Creator-hosted live conversation with share rewards.</p>
+                  </div>
+                </div>
+                <div class="event">
+                  <div class="date"><div><span>Aug</span><b>02</b></div></div>
+                  <div>
+                    <h3>IRL meetup: Web3 payments builders night</h3>
+                    <p>RSVP, check-in, referral tracking, and attendance rewards.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
-
-      <div class="content">
-        <section class="card">
-          <span class="kicker">Latest publishing</span>
-          <h2>Stories, videos, tutorials, and events in one place.</h2>
-          <p>Embed posts and media from eight networks, then turn that content into subscriber updates and reward campaigns.</p>
-          <div class="channels">
-            <span class="channel">X</span><span class="channel">YouTube</span><span class="channel">TikTok</span><span class="channel">Instagram</span><span class="channel">Reddit</span><span class="channel">Twitch</span><span class="channel">Spotify</span><span class="channel">Apple Podcasts</span>
-          </div>
-          <div class="story-list">
-            <article class="story">
-              <div class="thumb">Article</div>
-              <div>
-                <h3>How crypto payments are becoming mainstream</h3>
-                <p>Product education story with embedded video, email/SMS notification, and share rewards enabled.</p>
-                <div class="meta"><span class="tag">Read +75 BUX</span><span class="tag">Share +150 BUX</span><span class="tag">Sent to subscribers</span></div>
-              </div>
-            </article>
-            <article class="story">
-              <div class="thumb">Webinar</div>
-              <div>
-                <h3>Onboarding the next million users</h3>
-                <p>Sample YouTube webinar event with RSVPs, reminders, attendance rewards, and post-event follow-up.</p>
-                <div class="meta"><span class="tag">RSVP +100 BUX</span><span class="tag">Email/SMS reminders</span><span class="tag">Event analytics</span></div>
-              </div>
-            </article>
-            <article class="story">
-              <div class="thumb">Tutorial</div>
-              <div>
-                <h3>Buying crypto safely in under five minutes</h3>
-                <p>Educational tutorial designed for search, subscribers, and social sharing from readers.</p>
-                <div class="meta"><span class="tag">Tutorial</span><span class="tag">Subscriber growth</span><span class="tag">Reward entries</span></div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <aside class="card reward">
-          <span class="kicker">Reward campaign</span>
-          <h2>Read + share to enter the rewards draw.</h2>
-          <div class="prize">$500</div>
-          <p>Sample prize pool funded from the Station rewards wallet. Readers earn BUX points for verified actions and use them to enter the draw.</p>
-          <div class="actions">
-            <div class="action"><span>Read this story</span><b>+75 BUX</b></div>
-            <div class="action"><span>Share on X</span><b>+150 BUX</b></div>
-            <div class="action"><span>Refer a subscriber</span><b>+250 BUX</b></div>
-            <div class="action"><span>RSVP to webinar</span><b>+100 BUX</b></div>
-          </div>
-        </aside>
-
-        <section class="card">
-          <span class="kicker">Distribution loop</span>
-          <h2>Rewards and referrals make it snowball.</h2>
-          <div class="flow">
-            <div><b>01 Embed</b><p>Bring content from social channels into the Station.</p></div>
-            <div><b>02 Notify</b><p>Email/SMS updates go to subscribers.</p></div>
-            <div><b>03 Reward</b><p>Readers earn BUX for shares and friend referrals.</p></div>
-            <div><b>04 Snowball</b><p>New subscribers create more readers, shares, and referrals.</p></div>
-          </div>
-        </section>
-
-        <aside class="card">
-          <span class="kicker">Analytics snapshot</span>
-          <h2>Audience data available.</h2>
-          <div class="mini-grid">
-            <div class="mini"><strong>38%</strong><span>Email open rate</span></div>
-            <div class="mini"><strong>19%</strong><span>SMS click rate</span></div>
-            <div class="mini"><strong>2.4x</strong><span>Reward lift</span></div>
-            <div class="mini"><strong>$1.72</strong><span>Cost / subscriber</span></div>
-          </div>
-        </aside>
-      </div>
-    </main>
+    </section>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="/blockster-v3-beta/">Apply for a Founding Station</a>
-      <a class="btn btn-ghost" href="/blockster-v3-beta/stations/">Back to Station overview</a>
+      <a class="button accent" href="/blockster-v3-beta/">Apply for a Founding Station</a>
+      <a class="button dark" href="/blockster-v3-beta/stations/">Back to Station overview</a>
     </div>
 
     <footer>
       <span>Blockster · Sample V3 Station</span>
       <span><a href="/blockster-v3-beta/deck.pdf">Deck</a> · <a href="/blockster-v3-beta/">Apply</a></span>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
