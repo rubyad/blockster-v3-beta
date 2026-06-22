@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample Creator Page — Blockster</title>
+<meta name="description" content="A sample Blockster creator profile showing portfolio, stations, services, rates, and contributor fit." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sample Creator Page — Blockster" />
+<meta property="og:description" content="See how a creator profile can look inside the Blockster creator network." />
+<meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/creators/sample/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0A08;--panel:#11100D;--panel2:#181510;--line:rgba(248,244,235,.10);--line2:rgba(248,244,235,.16);
+    --text:#F8F4EB;--muted:rgba(248,244,235,.62);--faint:rgba(248,244,235,.38);
+    --volt:#CAFC00;--violet:#7C3AED;--blue:#0EA5E9;--disp:"Bricolage Grotesque",sans-serif;--ui:"Inter",sans-serif;--mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased}
+  body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--ui);background-image:radial-gradient(80% 55% at 75% -10%,rgba(202,252,0,.09),transparent 62%),radial-gradient(70% 50% at 5% 10%,rgba(124,58,237,.14),transparent 58%)}
+  a{color:inherit;text-decoration:none}
+  .shell{max-width:1180px;margin:0 auto;padding:0 24px 64px}
+  .nav{height:66px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;letter-spacing:-.02em}
+  .mark{width:18px;height:18px;border-radius:5px;background:var(--volt);box-shadow:0 0 18px rgba(202,252,0,.35)}
+  .nav-actions{display:flex;gap:10px;align-items:center}
+  .nav-link{border:1px solid var(--line2);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:800}
+  .nav-link.primary{background:var(--volt);border-color:var(--volt);color:#080805}
+  .notice{margin:18px 0;border:1px solid rgba(202,252,0,.26);background:rgba(202,252,0,.07);border-radius:13px;padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.5}
+  .notice b{color:var(--volt)}
+  .hero{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(17,16,13,.86)}
+  .cover{min-height:230px;background:linear-gradient(to top,rgba(11,10,8,.92),transparent 60%),url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80");background-size:cover;background-position:center;padding:28px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+  .identity{display:flex;align-items:end;gap:18px}
+  .avatar{width:88px;height:88px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.24);background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:8px}
+  h1{font-family:var(--disp);font-size:clamp(40px,6vw,72px);line-height:.92;letter-spacing:-.04em}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 17px;font-size:13px;font-weight:800;white-space:nowrap}
+  .btn.primary{background:var(--volt);color:#080805}
+  .btn.ghost{border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.24);color:#fff}
+  .profile-body{display:grid;grid-template-columns:1.45fr .8fr;gap:18px;padding:18px}
+  .card{border:1px solid var(--line);background:rgba(16,14,11,.9);border-radius:18px;padding:20px}
+  .bio{color:var(--muted);font-size:15px;line-height:1.65}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:999px;padding:7px 9px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(248,244,235,.03)}
+  .stat strong{display:block;font-family:var(--disp);font-size:26px;line-height:1}
+  .stat span{display:block;margin-top:6px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+  h2{font-family:var(--disp);font-size:28px;letter-spacing:-.02em;margin-bottom:14px}
+  h3{font-family:var(--disp);letter-spacing:-.02em}
+  .section{padding-top:26px}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .work{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(16,14,11,.9)}
+  .work img{width:100%;height:160px;object-fit:cover;display:block}
+  .work div{padding:16px}
+  .work .meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--volt);margin-bottom:8px}
+  .work p,.side p{color:var(--muted);font-size:13px;line-height:1.5;margin-top:7px}
+  .side{display:grid;gap:16px;align-content:start}
+  .line{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:11px 0;color:var(--muted);font-size:13px}
+  .line:last-child{border-bottom:0}
+  .line b{color:var(--text);font-family:var(--mono);font-size:12px}
+  .station{display:flex;align-items:center;gap:11px;margin-top:10px}
+  .station-logo{width:38px;height:38px;border-radius:12px;background:var(--violet);display:grid;place-items:center;font-family:var(--mono);font-weight:800}
+  .station b{display:block;font-size:13px}
+  .station span{display:block;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .fine{color:var(--faint);font-size:11px;line-height:1.5;margin-top:14px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;color:var(--faint);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media(max-width:860px){.profile-body,.work-grid{grid-template-columns:1fr}.cover{align-items:flex-start;flex-direction:column}.actions{justify-content:flex-start}.stats{grid-template-columns:1fr}.shell{padding-inline:16px}}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="nav">
+      <a class="brand" href="/blockster-v3-beta/creators/"><span class="mark"></span>BLOCKSTER</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="/blockster-v3-beta/creators/">Creators</a>
+        <a class="nav-link primary" href="/blockster-v3-beta/creators/apply/">Apply</a>
+      </div>
+    </header>
+
+    <div class="notice"><b>Sample Creator Page.</b> Illustrative mockup only. Creator work, rates, stations, and availability are examples.</div>
+
+    <main class="hero">
+      <section class="cover">
+        <div class="identity">
+          <div class="avatar"><img src="https://api.dicebear.com/9.x/avataaars/svg?seed=maya-chain" alt=""></div>
+          <div>
+            <div class="eyebrow">Research writer · video host · event moderator</div>
+            <h1>Maya Chain</h1>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="/blockster-v3-beta/creators/">Back to creators</a>
+          <a class="btn primary" href="/blockster-v3-beta/creators/apply/">Apply as creator</a>
+        </div>
+      </section>
+
+      <section class="profile-body">
+        <div>
+          <div class="card">
+            <h2>Contributor profile</h2>
+            <p class="bio">Maya is a sample Blockster creator profile for a crypto-native researcher and host. Stations can review her portfolio, invite her to contribute stories, book her for event coverage, or contact her for launch content. Creators get hired and paid directly by Stations; Blockster serves as the network.</p>
+            <div class="chips"><span class="chip">Stablecoins</span><span class="chip">Payments</span><span class="chip">AI agents</span><span class="chip">Video explainers</span><span class="chip">AMAs</span></div>
+            <div class="stats">
+              <div class="stat"><strong>42</strong><span>Published pieces</span></div>
+              <div class="stat"><strong>8</strong><span>Station invites</span></div>
+              <div class="stat"><strong>91%</strong><span>On-time delivery</span></div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Featured work</h2>
+            <div class="work-grid">
+              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1780408395-ae32cfac0fcc2f3e.jpeg" alt=""><div><div class="meta">Research story</div><h3>Tokenized funds and stablecoin rails</h3><p>Long-form explainer for a Station covering tokenized finance.</p></div></article>
+              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1779478683-a8d97b60694c509e.jpeg" alt=""><div><div class="meta">Video script</div><h3>AI-native payments walkthrough</h3><p>Script, clips, and subscriber version for a product education campaign.</p></div></article>
+              <article class="work"><img src="https://blockster-images.s3.us-east-1.amazonaws.com/uploads/1781098654-fa99f39685f4e3a9.jpeg" alt=""><div><div class="meta">Event coverage</div><h3>Live payments AMA recap</h3><p>Pre-event questions, live moderation, and post-event recap.</p></div></article>
+              <article class="work"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80" alt=""><div><div class="meta">Launch content</div><h3>Contributor-hosted launch series</h3><p>Three-part campaign for subscribers, social posts, and PR wire.</p></div></article>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="card">
+            <h2>Available for</h2>
+            <div class="line"><span>Research article</span><b>$750+</b></div>
+            <div class="line"><span>Video script / host</span><b>$1.2K+</b></div>
+            <div class="line"><span>X Space / webinar</span><b>$900+</b></div>
+            <div class="line"><span>Launch package</span><b>Custom</b></div>
+            <p class="fine">Sample pricing only. Stations and creators agree terms directly.</p>
+          </div>
+          <div class="card">
+            <h2>Station fit</h2>
+            <div class="station"><div class="station-logo">MP</div><div><b>MoonPay Station</b><span>Payments · onboarding</span></div></div>
+            <div class="station"><div class="station-logo">AI</div><div><b>AI Agents Weekly</b><span>AI commerce</span></div></div>
+            <div class="station"><div class="station-logo">RW</div><div><b>RWA Desk</b><span>Tokenized assets</span></div></div>
+          </div>
+          <div class="card">
+            <h2>How Stations hire</h2>
+            <p>Stations can invite creators to contribute. The creator accepts terms, delivers work, and gets paid directly by the Station in the agreed currency.</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>Blockster · Sample Creator Page</span>
+      <span><a href="/blockster-v3-beta/creators/">Creators</a> · <a href="/blockster-v3-beta/creators/apply/">Apply</a></span>
+    </footer>
+  </div>
+</body>
+</html>
