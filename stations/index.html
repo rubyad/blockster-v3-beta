@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Founding Stations — Blockster</title>
+<meta name="description" content="Run a media brand on a network that pays its readers. 20 Founding Station spots — the $499/mo Hub plan is free; fund $500/mo into reader rewards." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Founding Stations — Blockster" />
+<meta property="og:description" content="Run a media brand on a network that pays its readers. 20 founding spots, plan on us." />
+<meta property="og:url" content="https://rubyad.github.io/blockster-v3-beta/stations/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Founding Stations — Blockster" />
+<meta name="twitter:description" content="Run a media brand on a network that pays its readers. 20 founding spots, plan on us." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#0B0A08; --ink-800:#111110; --card:#141312; --lift:rgba(255,255,255,.025);
+    --lime:#CAFC00; --lime-dim:rgba(202,252,0,.12);
+    --t1:#fff; --t2:rgba(255,255,255,.62); --t3:rgba(255,255,255,.38); --t4:rgba(255,255,255,.20);
+    --border:rgba(255,255,255,.08); --border-mid:rgba(255,255,255,.13);
+    --disp:"Bricolage Grotesque",sans-serif; --body:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink-900);color:var(--t1);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .disp{font-family:var(--disp);font-weight:800;letter-spacing:-.02em;line-height:1.02}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--t3)}
+  .lime{color:var(--lime)}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(11,10,8,.72);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .mark{width:22px;height:22px;border-radius:6px;background:var(--lime);display:inline-block}
+  .nav-actions{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-block;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;transition:.15s}
+  .btn-primary{background:var(--lime);color:#0a0a0a}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(202,252,0,.18)}
+  .btn-ghost{border:1px solid var(--border-mid);color:var(--t1)}
+  .btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+  /* tape */
+  .tape{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--ink-800);overflow:hidden;white-space:nowrap}
+  .tape-inner{display:inline-block;padding:9px 0;animation:scroll 30s linear infinite;font-family:var(--mono);font-size:12px;color:var(--t2)}
+  .tape-inner span{margin:0 26px}
+  .tape b{color:var(--lime);font-weight:500}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* hero */
+  .hero{padding:88px 0 72px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border-mid);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  h1{font-size:clamp(40px,6.2vw,76px);margin:26px auto 0;max-width:14ch}
+  .sub{font-size:clamp(17px,2vw,21px);color:var(--t2);max-width:50ch;margin:24px auto 0;line-height:1.55}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+  .cta-row .btn{padding:15px 28px;font-size:15px}
+  .micro{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--t3)}
+  /* offer block */
+  .offer{margin:8px auto 0;max-width:920px;border:1px solid var(--border-mid);border-radius:24px;background:linear-gradient(180deg,rgba(202,252,0,.05),rgba(202,252,0,0));overflow:hidden}
+  .offer-key{border-left:3px solid var(--lime)}
+  .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .offer-cell{background:var(--ink-900);padding:38px 36px}
+  .offer-cell .num{font-family:var(--disp);font-weight:800;font-size:clamp(34px,5vw,54px);letter-spacing:-.03em}
+  .offer-cell .lbl{margin-top:10px;color:var(--t2);font-size:15px;line-height:1.5}
+  .offer-foot{padding:22px 36px;border-top:1px solid var(--border);font-family:var(--mono);font-size:13.5px;color:var(--t2);text-align:center}
+  /* sections */
+  section{padding:74px 0}
+  .sec-head{max-width:42ch}
+  h2{font-size:clamp(28px,4vw,44px);margin-top:16px}
+  .lead{color:var(--t2);font-size:17px;margin-top:18px;max-width:54ch;line-height:1.6}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;transition:.18s}
+  .card:hover{border-color:var(--border-mid);transform:translateY(-2px)}
+  .card h3{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:10px}
+  .card p{color:var(--t2);font-size:14.5px;line-height:1.6}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:14px;display:block}
+  /* steps */
+  .steps{counter-reset:s;margin-top:44px;display:grid;gap:0}
+  .step{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--border);align-items:start}
+  .step:last-child{border-bottom:1px solid var(--border)}
+  .step .n{counter-increment:s;font-family:var(--disp);font-weight:800;font-size:30px;color:var(--lime);line-height:1}
+  .step .n::before{content:"0" counter(s)}
+  .step h3{font-family:var(--disp);font-weight:700;font-size:21px;margin-bottom:8px}
+  .step p{color:var(--t2);font-size:15px;line-height:1.6;max-width:62ch}
+  /* value list */
+  .vlist{list-style:none;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px 40px}
+  .vlist li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--t1);line-height:1.5}
+  .vlist .tick{flex:none;width:22px;height:22px;border-radius:6px;background:var(--lime-dim);color:var(--lime);display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:1px}
+  .vlist b{font-weight:600}.vlist span{color:var(--t2);font-weight:400}
+  /* electra */
+  .electra{background:var(--ink-800);border:1px solid var(--border);border-radius:24px;padding:44px;display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+  .chat{background:var(--ink-900);border:1px solid var(--border);border-radius:16px;padding:20px;font-size:14px}
+  .bubble{background:var(--lift);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--t2);line-height:1.55;margin-bottom:12px}
+  .bubble b{color:var(--lime);font-weight:600}
+  .chatbtns{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:var(--mono);font-size:11.5px;padding:7px 12px;border:1px solid var(--border-mid);border-radius:8px;color:var(--t2)}
+  /* stats */
+  .statband{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-top:44px}
+  .stat{background:var(--ink-900);padding:34px 26px;text-align:center}
+  .stat .v{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.02em}
+  .stat .k{color:var(--t3);font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
+  /* faq */
+  details{border-top:1px solid var(--border);padding:22px 0}
+  details:last-of-type{border-bottom:1px solid var(--border)}
+  summary{cursor:pointer;font-family:var(--disp);font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--lime);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--t2);font-size:15px;line-height:1.65;margin-top:14px;max-width:70ch}
+  /* final */
+  .final{text-align:center;background:linear-gradient(180deg,rgba(202,252,0,.06),transparent);border:1px solid var(--border-mid);border-radius:28px;padding:64px 32px;margin-top:20px}
+  .final h2{max-width:18ch;margin:0 auto}
+  footer{border-top:1px solid var(--border);padding:40px 0;color:var(--t3);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .ph{color:var(--lime);font-family:var(--mono)}
+  @media(max-width:820px){
+    .offer-grid,.grid3,.grid2,.vlist,.statband{grid-template-columns:1fr}
+    .electra{grid-template-columns:1fr;padding:28px}
+    .step{grid-template-columns:44px 1fr;gap:16px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav">
+  <a class="brand" href="/blockster-v3-beta/stations/"><span class="mark"></span>Blockster</a>
+  <div class="nav-actions">
+    <a class="btn btn-ghost" href="/blockster-v3-beta/creators/#how">For creators</a>
+    <a class="btn btn-primary" href="/blockster-v3-beta/">Apply — 20 spots</a>
+  </div>
+</div></nav>
+
+<div class="tape"><div class="wrap"><div class="tape-inner">
+  <span>FOUNDING STATIONS · <b>20 SPOTS</b></span><span>Reader rewards</span><span>Events</span><span>AI growth</span><span>Hub plan <b>FREE</b> during beta for the first 20</span><span>Applications open now</span>
+  <span>FOUNDING STATIONS · <b>20 SPOTS</b></span><span>Reader rewards</span><span>Events</span><span>AI growth</span><span>Hub plan <b>FREE</b> during beta for the first 20</span><span>Applications open now</span>
+</div></div></div>
+
+<header class="hero wrap">
+  <span class="pill"><span class="dot"></span>Founding Stations · By application</span>
+  <h1 class="disp">Run your media brand on a network that <span class="lime">pays its readers</span>.</h1>
+  <p class="sub">Blockster is a broadcast network for crypto's attention economy. Publish dispatches, shows, and interviews — and reward your audience in BUX for reading and sharing. We're opening <b style="color:#fff">20 Founding Station</b> spots before beta.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="/blockster-v3-beta/">Apply to be a Founding Station</a>
+    <a class="btn btn-ghost" href="#how">See how it works</a>
+  </div>
+  <p class="micro">No platform fee for founders · Activation is white-glove · Takes ~5 min to apply</p>
+</header>
+
+<!-- THE OFFER -->
+<div class="wrap">
+  <div class="offer offer-key">
+    <div class="offer-grid">
+      <div class="offer-cell">
+        <div class="num lime">$0</div>
+        <div class="lbl">Your Hub plan is <b style="color:#fff">free during beta</b> for the first 20 Founding Stations.</div>
+      </div>
+      <div class="offer-cell">
+        <div class="num">$500<span style="font-size:.45em;color:var(--t3)">/mo</span></div>
+        <div class="lbl">Your only commitment: fund <b style="color:#fff">at least $500/mo</b> into reader rewards — the prizes your audience wins, funded entirely by you.</div>
+      </div>
+    </div>
+    <div class="offer-foot">Every dollar you spend goes to your readers — <span class="lime">not to us.</span></div>
+  </div>
+</div>
+
+<!-- WHAT A STATION IS -->
+<section class="wrap" id="how">
+  <div class="sec-head">
+    <span class="eyebrow">What you're getting</span>
+    <h2 class="disp">A station is a media brand. We give it an audience and an economy.</h2>
+    <p class="lead">You don't just get a page. You get a broadcast presence on a shared network, an AI growth manager, and a reward economy that turns readers into a loyal, active audience.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><span class="kicker">Publish</span><h3>Every format</h3><p>Dispatches (articles), shows &amp; podcasts, and interviews — distinct, designed card formats on a story-first feed, each with your byline and station keyline.</p></div>
+    <div class="card"><span class="kicker">Reward</span><h3>Reward your readers</h3><p>Readers earn BUX — onchain loyalty points — for reading and sharing, and win prizes in your station's raffles. Your $500/mo funds the prize pool that turns passive traffic into a loyal, amplifying audience.</p></div>
+    <div class="card"><span class="kicker">Recruit</span><h3>Bring contributors</h3><p>Invite journalists, podcasters, and editors to publish under your station. We're recruiting a contributor network in parallel — match with them at launch.</p></div>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="wrap" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">The founding deal, in full</span><h2 class="disp">What Founding Stations get</h2></div>
+  <ul class="vlist">
+    <li><span class="tick">✓</span><div><b>$499/mo Hub plan, free</b> <span>— for your founding term. No platform fee.</span></div></li>
+    <li><span class="tick">✓</span><div><b>Founding Station status</b> <span>— a locked founding rate after the free term, before public pricing.</span></div></li>
+    <li><span class="tick">✓</span><div><b>Electra, your AI growth manager</b> <span>— drafts, publishes, distributes, and reports from chat.</span></div></li>
+    <li><span class="tick">✓</span><div><b>White-glove activation</b> <span>— we claim, set up, and connect your station for you.</span></div></li>
+    <li><span class="tick">✓</span><div><b>Telegram operating layer</b> <span>— run your station from your phone; approve drafts inline.</span></div></li>
+    <li><span class="tick">✓</span><div><b>First pick of contributors</b> <span>— match with our recruited writers, hosts &amp; editors.</span></div></li>
+    <li><span class="tick">✓</span><div><b>Network distribution</b> <span>— your stories surface in the shared story-first feed.</span></div></li>
+    <li><span class="tick">✓</span><div><b>Reward economy that works</b> <span>— every $1 of your budget reaches readers, not fees.</span></div></li>
+  </ul>
+</section>
+
+<!-- WHO -->
+<section class="wrap" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Who this is for</span><h2 class="disp">Brands with something to say to crypto.</h2></div>
+  <div class="grid3">
+    <div class="card"><h3>Exchanges &amp; protocols</h3><p>You already produce updates, research, and announcements. Turn them into a rewarded, growing audience instead of dead newsletters.</p></div>
+    <div class="card"><h3>Media &amp; newsletters</h3><p>Crypto publications, research desks, and newsletters that want distribution and a way to pay their audience for attention.</p></div>
+    <div class="card"><h3>Creators as brands</h3><p>Podcasters, hosts, and analysts ready to run their own station — with contributors and a reward budget behind them.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="wrap" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">How it works</span><h2 class="disp">From application to live in four steps.</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n"></div><div><h3>Apply</h3><p>Tell us about your brand, your audience, and what you'd publish. ~5 minutes. We review every application personally — this is a hand-picked founding cohort.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>Get accepted &amp; claim your station</h3><p>If you're a fit, we activate white-glove: many brands already have a hub seeded on Blockster — we hand you ownership and set it up with you.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>Fund your reward wallet</h3><p>Deposit your first $500 in reader rewards. This is the whole deal — your money fuels your audience, and the platform fee is on us.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>Let Electra run it</h3><p>Electra drafts and publishes, distributes to subscribers over email and Telegram, runs reward campaigns, and reports back — all from chat.</p></div></div>
+  </div>
+</section>
+
+<!-- ELECTRA -->
+<section class="wrap" style="padding-top:0">
+  <div class="electra">
+    <div>
+      <span class="eyebrow">Meet Electra</span>
+      <h2 class="disp" style="margin-top:14px;font-size:clamp(26px,3.4vw,38px)">You don't get a dashboard. You get an AI growth manager.</h2>
+      <p class="lead">Electra runs your station conversationally — on the web and in Telegram. Publish, distribute, reward, and report by just asking. She suggests, you approve, she executes.</p>
+    </div>
+    <div class="chat">
+      <div class="bubble">Welcome back. Yesterday your last dispatch earned readers <b>4,200 BUX</b> across 56 reads and 18 shares. Want to publish today's update?</div>
+      <div class="bubble" style="background:rgba(202,252,0,.06);border-color:rgba(202,252,0,.18);color:#fff">Draft the staking announcement and attach a read reward.</div>
+      <div class="bubble">Drafted. It'll broadcast to your <b>192 subscribers</b> over email + Telegram with a <b>+75 BUX</b> read reward.</div>
+      <div class="chatbtns"><span class="chip">Approve &amp; send</span><span class="chip">Edit</span><span class="chip">Schedule</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="wrap" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Not starting from zero</span><h2 class="disp">The network is already built. You're filling it.</h2><p class="lead">Blockster carries a community gathered over years — your station launches into an existing, active network, not an empty room.</p></div>
+  <div class="statband">
+    <div class="stat"><div class="v lime">90+</div><div class="k">Stations on the network</div></div>
+    <div class="stat"><div class="v">450+</div><div class="k">Stories already published</div></div>
+    <div class="stat"><div class="v">1,100+</div><div class="k">Members in the community</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="wrap" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Questions</span><h2 class="disp">The details.</h2></div>
+  <div style="margin-top:36px">
+    <details open><summary>What's the catch on "free"?</summary><p>There isn't one. The $499/mo Hub plan is genuinely free for the first 20 Founding Stations. The only commitment is funding at least $500/mo into your reader rewards — and that money goes entirely to your audience as prizes, never to Blockster.</p></details>
+    <details><summary>What is BUX?</summary><p>BUX is Blockster's onchain loyalty layer for your audience. Readers earn it for reading, watching, and sharing your stories, and use it to win prizes in your station's raffles. You fund the prize pool; BUX is how attention becomes a loyal, repeat, amplifying audience. (Note: BUX is a reader loyalty layer — it's not how contributors are paid. Stations pay contributors directly.)</p></details>
+    <details><summary>What if I don't have a content team?</summary><p>Two answers. First, Electra drafts and publishes for you from a topic, a link, or a forwarded Telegram message. Second, we're recruiting a contributor network — journalists, podcasters, and editors — and Founding Stations get first pick.</p></details>
+    <details><summary>Do I have to build everything myself?</summary><p>No. Activation is white-glove. Many brands already have a hub seeded on Blockster from our community; we hand you ownership and set it up with you. You publish; Electra and our team handle the rest.</p></details>
+    <details><summary>When does it go live?</summary><p>Applications are open now. Accepted Founding Stations are reviewed first and activated with the first beta cohort in the coming weeks.</p></details>
+    <details><summary>How exclusive is the founding cohort?</summary><p>Twenty stations only. We review every application by hand and accept on fit and audience quality — not first-come. Once the cohort is full, new stations join a waitlist at standard pricing.</p></details>
+  </div>
+</section>
+
+<!-- APPLY / FINAL -->
+<section class="wrap" id="apply">
+  <div class="final">
+    <span class="eyebrow">20 spots · Applications open</span>
+    <h2 class="disp" style="margin-top:18px">Claim your spot in the founding cohort.</h2>
+    <p class="sub" style="margin-top:18px">Five minutes to apply. We review personally during the beta intake.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/blockster-v3-beta/">Apply to be a Founding Station</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="brand" style="font-size:15px"><span class="mark" style="width:18px;height:18px"></span>Blockster</div>
+  <div>A broadcast network for the attention economy · Founding Station beta</div>
+</footer>
+
+</body>
+</html>
